@@ -16,9 +16,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^6.1.0",
     "gulp-sass": "^5.1.0",
+    "gulp-svg-sprite": "^2.0.3",
     "gulp-uglify-es": "^3.0.0",
     "jquery": "^3.7.1",
-    "sass": "^1.69.5",
-    "sprite": "^0.0.1"
+    "sass": "^1.69.5"
   }
 }

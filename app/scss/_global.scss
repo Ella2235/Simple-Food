@@ -1,1 +1,14 @@
+body {
+  min-height: 100vh;
+  background-color: $primary-color;
+  color: $title;
+  font-size: 20px;
+  line-height: 1.5;
+  @extend %regular-400;
+}
 
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}

@@ -2,4 +2,106 @@
 @import "reset";
 @import "fonts";
 @import "global";
+
+.header {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 120px;
+  }
+
+  &__content {
+    max-width: 450px;
+    width: 100%;
+    margin-right: 160px;
+  }
+
+  &__title {
+    line-height: 1.3;
+    font-size: 66px;
+    @extend %medium-500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    color: $btn;
+  }
+
+  &__slogan {
+    margin-bottom: 20px;
+    color: $subtitle;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
+
+  &__item {
+    position: relative;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__item:nth-child(3) {
+    margin-right: 65px;
+  }
+
+  &__list {
+    display: flex;
+  }
+  &__link {
+    color: $subtitle;
+    font-size: 18px;
+    &:hover {
+      color: $btn;
+    }
+  }
+
+  &__menu__link--active {
+    color: $btn;
+  }
+
+  &__link--search::before {
+    content: "";
+    background-image: url(../images/Search.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__link--cart::before {
+    content: "";
+    background-image: url(../images/Cart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__link-num {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $btn;
+    top: -5px;
+    right: -9px;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
 @import "media";
