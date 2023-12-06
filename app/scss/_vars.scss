@@ -2,18 +2,29 @@ $btn: #ff6838;
 $title: #363853;
 $subtitle: #31352b;
 $primary-color: #f9faff;
+$border-color: #c2c2c2;
+$text-color: #fff;
+$bag-color: rgba(255, 122, 80, 0.1);
+$interactive: #ff6838;
 
 %light-300 {
-  font-family: "Rubik-Light", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
 }
 
 %medium-500 {
-  font-family: "Rubik-Medium", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 
 %regular-400 {
-  font-family: "Rubik-Regular", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
+}
+
+%back {
+  content: "";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
