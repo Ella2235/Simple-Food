@@ -12,32 +12,17 @@ body {
   @extend %regular-400;
 }
 
-.menu__fixed {
-  position: fixed;
-  max-width: 1200px;
-  width: 100%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  padding: 15px 15px;
-  transition: padding 0.3s;
-}
-
-.menu__fixed::before {
-  content: "";
-  background-color: $primary-color;
-  box-shadow: 10px 10px 84px -6px rgba(0, 0, 0, 0.7);
-  width: 100vw;
-  height: 100%;
+.sr-only {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-}
-
-.header__inner {
-  top: 159px;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 main {
