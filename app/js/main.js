@@ -1,19 +1,14 @@
 $(function () {
-  //   Fancybox.bind('[data-fancybox="gallery"]', {});
-
-  var stickyHeader = $(".menu");
-  var stickyContent = $(".header__inner");
+  var stickyHeader = $(".header");
   var scrollChange = 1;
 
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
 
     if (scroll >= scrollChange) {
-      stickyHeader.addClass("menu__fixed");
-      stickyContent.addClass("inner__fixed");
+      stickyHeader.addClass("header__fixed");
     } else {
-      stickyHeader.removeClass("menu__fixed");
-      stickyContent.removeClass("inner__fixed");
+      stickyHeader.removeClass("header__fixed");
     }
   });
 });

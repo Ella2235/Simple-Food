@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="images/Favicon.svg" color="#5bbad5">
+    <link rel="icon" href="images/icons/Favicon.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/style.min.css">
@@ -18,85 +18,90 @@
 <body>
     <header class="header">
         <div class="container">
-            <nav class="menu">
+            <div class="header__inner d-flex">
                 <a class="logo" href="#">
-                    <img class="logo__img" src="images/logo.svg" width="197" height="31" alt="Логотип">
+                    <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
                 </a>
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a class="menu__link link menu__link--active" href="#">Главная</a>
-                    </li>
-                    <li class="menu__item">
-                        <a class="menu__link link" href="#">Блюда</a>
-                    </li>
-                    <li class="menu__item">
-                        <a class="menu__link link" href="#">Контакты</a>
-                    </li>
-                </ul>
-                <ul class="user-nav">
-                    <li class="user-nav__item">
-                        <button class="user-nav__btn " type="button">
-                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="9.76663" cy="9.63009" rx="8.98856" ry="8.88424" stroke="#363853"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M16.0184 16.2708L19.5424 19.7448" stroke="#363853" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <span class="sr-only">поиск по сайту</span>
-                        </button>
-                    </li>
-                    <li class="user-nav__item">
-                        <button class="user-nav__btn" type="button">
-                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M1 1.17578L3.08 1.5316L4.04301 12.8715C4.12001 13.7976 4.90301 14.5082 5.84301 14.5053H16.752C17.649 14.5072 18.41 13.8549 18.537 12.9772L19.486 6.49532C19.592 5.77083 19.083 5.09872 18.351 4.99395C18.287 4.98505 3.414 4.98011 3.414 4.98011"
-                                    stroke="#363853" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M12.375 8.63337H15.1479" stroke="#363853" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M5.4043 17.9316C5.70527 17.9316 5.94824 18.1729 5.94824 18.4696C5.94824 18.7673 5.70527 19.0085 5.4043 19.0085C5.10333 19.0085 4.86035 18.7673 4.86035 18.4696C4.86035 18.1729 5.10333 17.9316 5.4043 17.9316Z"
-                                    stroke="#363853" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M16.6846 17.9316C16.9856 17.9316 17.2296 18.1729 17.2296 18.4696C17.2296 18.7673 16.9856 19.0085 16.6846 19.0085C16.3836 19.0085 16.1406 18.7673 16.1406 18.4696C16.1406 18.1729 16.3836 17.9316 16.6846 17.9316Z"
-                                    stroke="#363853" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                            <a class="user-nav__btn-num">4</a>
-                            <span class="sr-only">корзина</span>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="header__inner">
-                <div class="header__content">
-                    <h1 class="header__title">
-                        Доставка
-                        <span class="header__text"> за 15 минут</span>
-                    </h1>
-                    <p class="header__slogan">
-                        Самый быстрый сервис доставки еды в вашем городе. Не уложимся в срок - доставка за наш счёт
-                    </p>
-                    <button class=" header__btn button" type="button">Заказать</button>
-                    <a class="header__link link" href="#">Подробнее</a>
-                </div>
-                <img class="header__img" src="images/scooter.png" alt="#">
+                <nav class="nav__inner d-flex ">
+                    <ul class="menu d-flex">
+                        <li class="menu__item">
+                            <a class="menu__link link menu__link--active" href="#">Главная</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link link" href="#">Блюда</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link link" href="#">Контакты</a>
+                        </li>
+                    </ul>
+                    <ul class="user-nav">
+                        <li class="user-nav__item">
+                            <button class="user-nav__btn user-nav__btn--search " type="button">
+                                <svg>
+                                    <use xlink:href=""></use>
+                                </svg>
+                                <span class="sr-only">поиск по сайту</span>
+                            </button>
+                        </li>
+                        <li class="user-nav__item">
+                            <button class="user-nav__btn user-nav__btn--backet" type="button">
+                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 1.17578L3.08 1.5316L4.04301 12.8715C4.12001 13.7976 4.90301 14.5082 5.84301 14.5053H16.752C17.649 14.5072 18.41 13.8549 18.537 12.9772L19.486 6.49532C19.592 5.77083 19.083 5.09872 18.351 4.99395C18.287 4.98505 3.414 4.98011 3.414 4.98011"
+                                        stroke="#363853" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12.375 8.63337H15.1479" stroke="#363853" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.4043 17.9316C5.70527 17.9316 5.94824 18.1729 5.94824 18.4696C5.94824 18.7673 5.70527 19.0085 5.4043 19.0085C5.10333 19.0085 4.86035 18.7673 4.86035 18.4696C4.86035 18.1729 5.10333 17.9316 5.4043 17.9316Z"
+                                        stroke="#363853" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.6846 17.9316C16.9856 17.9316 17.2296 18.1729 17.2296 18.4696C17.2296 18.7673 16.9856 19.0085 16.6846 19.0085C16.3836 19.0085 16.1406 18.7673 16.1406 18.4696C16.1406 18.1729 16.3836 17.9316 16.6846 17.9316Z"
+                                        stroke="#363853" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <a class="user-nav__btn-num">4</a>
+                                <span class="sr-only">корзина</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="category">
+    <main class="main">
+        <section class="hero">
             <div class="container">
-                <h2 class="category__title title">Популярные категории </h2>
-                <ul class="category__menu">
-                    <li class="category__item ">
-                        <button class="category__btn  category__btn--1 button category__btn--active " type="button">
-                            <svg class="category__svg" width="44" height="44" viewBox="0 0 44 44" fill="none"
+                <div class="hero__inner d-flex">
+                    <h1 class="sr-only"> </h1>
+                    <div class="hero__title">
+                        <h2 class="hero__text">
+                            Доставка
+                            <span class="hero__color"> за 15 минут</span>
+                        </h2>
+                        <p class="hero__slogan">
+                            Самый быстрый сервис доставки еды в вашем городе. Не уложимся в срок - доставка за наш счёт
+                        </p>
+                        <a class="hero__link-btn" href="#">Заказать</a>
+                        <a class="hero__link link" href="#">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="popul-category">
+            <div class="container">
+                <h2 class="popul-category__title title">Популярные категории </h2>
+                <ul class="popul-category__menu">
+                    <li class="popul-category__item ">
+                        <button class="popul-category__btn  popul-category__btn--1 button popul-category__btn--active "
+                            type="button">
+                            <svg class="popul-category__svg" width="44" height="44" viewBox="0 0 44 44" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_0_161)">
                                     <path
@@ -125,9 +130,9 @@
                         </button>
 
                     </li>
-                    <li class="category__item ">
-                        <button class="category__btn button" type="button">
-                            <svg class="category__svg" xmlns="http://www.w3.org/2000/svg" width="45" height="44"
+                    <li class="popul-category__item ">
+                        <button class="popul-category__btn button" type="button">
+                            <svg class="popul-category__svg" xmlns="http://www.w3.org/2000/svg" width="45" height="44"
                                 viewBox="0 0 45 44" fill="none">
                                 <g clip-path="url(#clip0_0_172)">
                                     <path
@@ -162,9 +167,9 @@
                             Пицца
                         </button>
                     </li>
-                    <li class="category__item">
-                        <button class="category__btn  button" type="button">
-                            <svg class="category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                    <li class="popul-category__item">
+                        <button class="popul-category__btn  button" type="button">
+                            <svg class="popul-category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
                                 viewBox="0 0 44 44" fill="none">
                                 <g clip-path="url(#clip0_0_263)">
                                     <path
@@ -201,9 +206,9 @@
                             Сендвичи
                         </button>
                     </li>
-                    <li class="category__item">
-                        <button class="category__btn button" type="button">
-                            <svg class="category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                    <li class="popul-category__item">
+                        <button class="popul-category__btn button" type="button">
+                            <svg class="popul-category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
                                 viewBox="0 0 44 44" fill="none">
                                 <g clip-path="url(#clip0_0_200)">
                                     <path
@@ -240,9 +245,9 @@
                             Азиатская кухня
                         </button>
                     </li>
-                    <li class="category__item">
-                        <button class="category__btn button" type="button">
-                            <svg class="category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                    <li class="popul-category__item">
+                        <button class="popul-category__btn button" type="button">
+                            <svg class="popul-category__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44"
                                 viewBox="0 0 44 44" fill="none">
                                 <g clip-path="url(#clip0_0_228)">
                                     <path
@@ -286,80 +291,122 @@
                         </button>
                     </li>
                 </ul>
-                <article class="article">
-                    <ul class="burger-card">
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--1">
-                                <p class="burger-card__text">Чизбургер с листьями салата</p>
-                                <span class="burger-card__num">160 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--2">
-                                <p class="burger-card__text">Бифбургер</p>
-                                <span class="burger-card__num">190 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--3">
-                                <p class="burger-card__text">Королевский чизбургер</p>
-                                <span class="burger-card__num">260 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--4">
-                                <p class="burger-card__text">Черный гамбургер</p>
-                                <span class="burger-card__num">199 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--5">
-                                <p class="burger-card__text">Чикен бургер</p>
-                                <span class="burger-card__num">180 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--6">
-                                <p class="burger-card__text">Чизбургер с листьями салата</p>
-                                <span class="burger-card__num">160 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--7">
-                                <p class="burger-card__text">Бифбургер</p>
-                                <span class="burger-card__num">190 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--8">
-                                <p class="burger-card__text">Королевский чизбургер</p>
-                                <span class="burger-card__num">260 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--9">
-                                <p class="burger-card__text">Черный гамбургер</p>
-                                <span class="burger-card__num">199 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                        <a class="burger-card__link" href="#">
-                            <li class="burger-card__item burger-card__item--10">
-                                <p class="burger-card__text">Чикен бургер</p>
-                                <span class="burger-card__num">180 грн.</span>
-                                <button class="burger-card__btn button" type="button">В корзину</button>
-                            </li>
-                        </a>
-                    </ul>
-                </article>
+
+
+                <ul class="popul-category__list">
+                    <li class="popul-category__box ">
+                        <article class="product-card ">
+                            <img src="images/burger.card/burger1.jpg" alt="Чизбургер с листьями салата">
+                            <h3 class="product-card__title">Чизбургер с листьями салата</h3>
+                            <span class="product-card__price">160
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box ">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger2.jpg" alt="Бифбургер">
+                            <h3 class="product-card__title">Бифбургер</h3>
+                            <span class="product-card__price">190
+                                <span class="product-card__price">грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger3.jpg" alt="Королевский чизбургер">
+                            <h3 class="product-card__title">Королевский чизбургер</h3>
+                            <span class="product-card__price">260
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger4.jpg" alt="Черный гамбургер">
+                            <h3 class="product-card__title">Черный гамбургер</h3>
+                            <span class="product-card__price">199
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger5.jpg" alt="Чикен бургер">
+                            <h3 class="product-card__title">Чикен бургер</h3>
+                            <span class="product-card__price">180
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger6.jpg" alt="Чизбургер с листьями салата">
+                            <h3 class="product-card__title">Чизбургер с листьями салата</h3>
+                            <span class="product-card__price">160
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger7.jpg" alt="Бифбургер">
+                            <h3 class="product-card__title">Бифбургер</h3>
+                            <span class="product-card__price">190
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger8.jpg" alt="Королевский чизбургер">
+                            <h3 class="product-card__title">Королевский чизбургер</h3>
+                            <span class="product-card__price">260
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger9.jpg" alt="Черный гамбургер">
+                            <h3 class="product-card__title">Черный гамбургер</h3>
+                            <span class="product-card__price">199
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+                    <li class="popul-category__box">
+                        <article class="product-card">
+                            <img src="images/burger.card/burger10.jpg" alt="Чикен бургер">
+                            <h3 class="product-card__title">Чикен бургер</h3>
+                            <span class="product-card__price">180
+                                <span class="product-card__price"> грн.</span>
+                            </span>
+                            <button class="product-card__btn button" type="button">В корзину</button>
+                        </article>
+                    </li>
+
+
+                </ul>
+
             </div>
         </section>
     </main>

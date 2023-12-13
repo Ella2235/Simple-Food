@@ -11,6 +11,7 @@ html {
 ul,
 ol {
   padding: 0;
+  list-style: none;
 }
 
 body,
@@ -38,14 +39,6 @@ h3 {
   font: inherit;
 }
 
-li {
-  list-style: none;
-}
-
-ul {
-  list-style: none;
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -61,18 +54,18 @@ select {
 }
 
 a {
+  outline: transparent;
   text-decoration: none;
   color: inherit;
 }
 
 button {
   background-color: transparent;
-  outline: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
 }
 
 address {
-  font-style: inherit;
+  font-style: normal;
 }

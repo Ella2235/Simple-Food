@@ -7,7 +7,9 @@ const uglify = require("gulp-uglify-es").default;
 const imagemin = require("gulp-imagemin");
 const del = require("del");
 const browserSync = require("browser-sync").create();
-const sprite = require("gulp-svg-sprite");
+const svgSprite = require("gulp-svg-sprite");
+const replace = require("gulp-replace");
+const cheerio = require("gulp-cheerio");
 
 function browsersync() {
   browserSync.init({
@@ -55,18 +57,44 @@ function scripts() {
     .pipe(browserSync.stream());
 }
 
-// function sprite() {
-//   return src("app/images/dist/*.svg").pipe(
-//     svgSprite({
-//       mode: {
-//         stack: {
-//           sprite: "../sprite.svg",
-//           example: true,
-//         },
-//       },
-//     })
-//   );
-// }
+function svgSprites() {
+  return src("app/images/icons/*.svg")
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "../sprite.svg",
+          },
+        },
+      })
+    )
+    .pipe(dest("app/images"));
+}
+
+function svgSprites() {
+  return src("app/images/icons/*.svg")
+    .pipe(
+      cheerio({
+        run: ($) => {
+          $("[fill]").removeAttr("fill");
+          $("[stroke]").removeAttr("stroke");
+          $("[style]").removeAttr("style");
+        },
+        parserOptions: { xmlMode: true },
+      })
+    )
+    .pipe(replace("&gt;", ">")) // боремся с заменой символа
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "../sprite.svg",
+          },
+        },
+      })
+    )
+    .pipe(dest("app/images"));
+}
 
 function build() {
   return src(["app/**/*.html", "app/css/style.min.css", "app/js/main.min.js"], {
@@ -80,6 +108,7 @@ function cleanDist() {
 
 function watching() {
   watch(["app/scss/**/*.scss"], styles);
+  watch(["app/images/icons/*.svg"], svgSprites);
   watch(["app/js/**/*.js", "!app/js/main.min.js"], scripts);
   watch(["app/**/*.html"]).on("change", browserSync.reload);
 }
@@ -89,8 +118,8 @@ exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.images = images;
-// exports.sprite = sprite;
+exports.svgSprites = svgSprites;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
