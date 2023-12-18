@@ -1,6 +1,7 @@
 @import "reset";
 @import "fonts";
 @import "vars";
+@import "libs";
 @import "mixin";
 @import "global";
 
@@ -40,24 +41,25 @@ body {
     }
   }
 
-  .logo {
-    border-radius: 5px;
-    transition: opacity 0.3s, box-shadow 0.3s;
-
-    &:hover {
-      opacity: 0.7;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px $shadow;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
-  }
   &__nav {
     display: flex;
+  }
+}
+
+.logo {
+  border-radius: 5px;
+  transition: opacity 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $shadow;
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 }
 
@@ -314,7 +316,6 @@ body {
     width: 44px;
     height: 44px;
     margin-right: 9px;
-    margin-right: 10px;
     transform: stroke 0.3s;
   }
 
@@ -358,6 +359,10 @@ body {
   border-radius: 5px;
   background-color: $text-color;
   box-shadow: 0 0 0 1px #ececec;
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 0px 1px #ff6838;
+  }
 
   &__title {
     margin-bottom: 10px;
@@ -410,17 +415,16 @@ body {
     margin-bottom: 30px;
   }
 
+  &__list {
+    margin-bottom: 30px;
+  }
+
   &__lead {
     @extend %align;
     font-size: 24px;
-    // margin-bottom: 22px;
 
     &:not(:last-child) {
       margin-bottom: 22px;
-    }
-
-    &:last-child {
-      margin-bottom: 30px;
     }
 
     &::before {
@@ -498,7 +502,11 @@ body {
   padding-bottom: 23px;
   border-radius: 10px;
   background-color: $text-color;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
+  }
 
   &__img {
     margin-bottom: 15px;
@@ -524,6 +532,78 @@ body {
     height: 33px;
     padding: 5px 28px;
     border-radius: 20px;
+
+    &:hover {
+      padding: 5px 7px 5px 48px;
+      svg {
+        fill: $btn;
+      }
+    }
+
+    &:focus,
+    &:active {
+      svg {
+        fill: $btn;
+      }
+    }
+  }
+
+  &__svg {
+    fill: none;
+    fill: $text-color;
+    width: 24px;
+    height: 24px;
+    transform: stroke 0.3s;
+  }
+}
+
+.customer-reviews {
+  text-align: center;
+  padding-bottom: 123px;
+
+  &__title {
+    margin-bottom: 45px;
+  }
+
+  &__slider {
+    // display: flex;
+  }
+
+  &__content {
+    @extend %align;
+    padding: 0 89px;
+  }
+
+  &__img {
+    border-radius: 50%;
+    margin-right: 80px;
+  }
+
+  &__blockquote {
+    text-align: start;
+    max-width: 570px;
+    width: 100%;
+  }
+
+  &__quote {
+    @extend %italic-400;
+    font-weight: 400;
+    color: $subtitle;
+    margin-bottom: 30px;
+  }
+
+  &__name {
+    display: block;
+    color: $btn;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
+
+  &__slogan {
+    color: $subtitle;
+    font-size: 14px;
+    line-height: 1.3;
   }
 }
 
@@ -532,9 +612,9 @@ body {
 
   &__box {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: repeat(3, auto);
     column-gap: 70px;
-    height: 311px;
+    padding-bottom: 50px;
   }
 
   &__list {
@@ -558,31 +638,27 @@ body {
     }
   }
 
-  &__text {
-    grid-column: span 4;
+  &__logo {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  &__bottom {
     text-align: center;
-    align-self: center;
+    padding: 30px 0;
+    border-top: 1px solid $title;
+  }
+
+  &__text {
     color: $subtitle;
     font-size: 14px;
     line-height: 1;
-
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 88px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 1px;
-      width: 100%;
-      background-color: $title;
-    }
   }
 }
 
 .form-subscribe {
   max-width: 200px;
   width: 100%;
-  margin-top: 30px;
 
   &__logo {
     display: block;
@@ -712,15 +788,12 @@ body {
 
     &:active {
       background-color: #fff2ed;
-      svg {
-        fill: $btn;
-      }
     }
   }
 
   &__svg {
     fill: none;
-    fill: #363853;
+    fill: $subtitle;
     width: 21px;
     height: 21px;
     transition: fill 0.3s;

@@ -1,4 +1,8 @@
 $(function () {
+  $(".customer-reviews__slider").swiper({
+    dots: true,
+    arrows: false,
+  });
   var mixer = mixitup(".popular-category");
 
   var stickyHeader = $(".header__inner");
