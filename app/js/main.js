@@ -1,8 +1,4 @@
 $(function () {
-  $(".customer-reviews__slider").swiper({
-    dots: true,
-    arrows: false,
-  });
   var mixer = mixitup(".popular-category");
 
   var stickyHeader = $(".header__inner");
@@ -17,4 +13,25 @@ $(function () {
       stickyHeader.removeClass("header__inner-fixed");
     }
   });
+});
+
+const swiper = new Swiper(".swiper", {
+  // slidesPerView: 4,
+  // spaceBetween: 30,
+  loop: true,
+  speed: 1000,
+
+  keyboard: {
+    enabled: true,
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });

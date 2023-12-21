@@ -122,7 +122,7 @@ body {
 
     &:focus {
       background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      box-shadow: 0 0 0 2px $shadow;
     }
 
     &:active {
@@ -132,7 +132,7 @@ body {
 
   &__svg {
     fill: none;
-    stroke: #363853;
+    stroke: $title;
     stroke-width: 1.5;
     width: 20px;
     height: 20px;
@@ -141,13 +141,13 @@ body {
 
   &__btn-num {
     position: absolute;
-    border-radius: 50px;
-    background-color: $btn;
     top: 5px;
     right: 5px;
+    text-align: center;
+    background-color: $btn;
     color: $text-color;
     font-size: 10px;
-    text-align: center;
+    border-radius: 50px;
     padding: 0 4px;
     transition: color 0.3s, background-color 0.3s;
   }
@@ -157,28 +157,21 @@ body {
   &__inner {
     @extend %flex;
     padding-bottom: 120px;
-
-    &::after {
-      @extend %back;
-      background-image: url("../images/scooter.png");
-      background-position: right;
-      width: 550px;
-      height: 660px;
-    }
   }
 
-  &__title {
+  &__text {
     max-width: 450px;
     width: 100%;
     margin-right: 160px;
   }
 
-  &__text {
+  &__subtitle {
     font-weight: 500;
     line-height: 1.3;
     font-size: 66px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    @include line-clamp(2);
   }
 
   &__color {
@@ -188,6 +181,7 @@ body {
   &__slogan {
     margin-bottom: 20px;
     color: $subtitle;
+    @include line-clamp(3);
   }
 
   &__link-btn {
@@ -209,7 +203,7 @@ body {
 
     &:focus {
       background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      box-shadow: 0 0 0 2px $shadow;
       color: $interactive;
     }
 
@@ -240,12 +234,20 @@ body {
       background-color: transparent;
     }
   }
+
+  &__img {
+    @extend %back;
+    background-position: right;
+    width: 550px;
+    height: 660px;
+  }
 }
 
 .popular-category {
   text-align: center;
   &__title {
     margin-bottom: 60px;
+    @include line-clamp(1);
   }
 
   &__menu {
@@ -361,12 +363,13 @@ body {
   box-shadow: 0 0 0 1px #ececec;
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0px 0px 0px 1px #ff6838;
+    box-shadow: 0px 0px 0px 1px $btn;
   }
 
   &__title {
     margin-bottom: 10px;
     font-size: 15px;
+    @include line-clamp(2);
   }
 
   &__price {
@@ -375,6 +378,7 @@ body {
     font-weight: 500;
     font-size: 15px;
     line-height: 1.4;
+    @include line-clamp(1);
   }
 
   &__btn {
@@ -383,20 +387,11 @@ body {
   }
 }
 
-.fast-food {
+.stay-home {
   &__inner {
-    padding: 120px 69px;
     @extend %align;
     justify-content: space-around;
-
-    &::before {
-      @extend %back;
-      background-position: left;
-      background-image: url("../images/food-delivery.png");
-      width: 440px;
-      height: 585px;
-      margin-right: 120px;
-    }
+    padding: 120px 69px;
   }
 
   &__delivery {
@@ -405,14 +400,14 @@ body {
   }
 
   &__title {
-    max-width: 400px;
-    width: 100%;
     margin-bottom: 30px;
+    @include line-clamp(2);
   }
 
   &__slogan {
     color: $subtitle;
     margin-bottom: 30px;
+    @include line-clamp(3);
   }
 
   &__list {
@@ -422,6 +417,7 @@ body {
   &__lead {
     @extend %align;
     font-size: 24px;
+    @include line-clamp(1);
 
     &:not(:last-child) {
       margin-bottom: 22px;
@@ -429,7 +425,7 @@ body {
 
     &::before {
       content: "";
-      display: inline-block;
+      display: block;
       width: 34px;
       height: 34px;
       margin-right: 30px;
@@ -477,6 +473,14 @@ body {
       color: $interactive;
     }
   }
+
+  &__photo {
+    @extend %back;
+    background-position: left;
+    width: 440px;
+    height: 585px;
+    margin-right: 120px;
+  }
 }
 
 .best-cafe {
@@ -487,6 +491,7 @@ body {
 
   &__title {
     margin-bottom: 45px;
+    @include line-clamp(1);
   }
   &__menu {
     display: grid;
@@ -499,7 +504,6 @@ body {
 .card-cafe {
   max-width: 370px;
   width: 100%;
-  padding-bottom: 23px;
   border-radius: 10px;
   background-color: $text-color;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -508,8 +512,8 @@ body {
     box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
   }
 
-  &__img {
-    margin-bottom: 15px;
+  &__box {
+    padding: 15px 20px 20px;
   }
 
   &__subtitle {
@@ -517,31 +521,61 @@ body {
     line-height: 1.3;
     columns: $subtitle;
     margin-bottom: 20px;
-    padding: 0 20px;
+    @include line-clamp(1);
+  }
+
+  &__box-time {
+    @extend %align;
+
+    &::before {
+      @extend %back;
+      background-image: url("../images/icons/timer.svg");
+      display: block;
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+    }
   }
 
   &__time {
     font-size: 18px;
     font-weight: 300;
-    padding: 0 20px;
-    margin-right: 113px;
+    margin-right: auto;
+    @include line-clamp(1);
   }
 
-  &__btn {
+  &__link {
+    display: inline-block;
+    position: relative;
     width: 79px;
     height: 33px;
-    padding: 5px 28px;
+    background-color: $btn;
     border-radius: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 
     &:hover {
-      padding: 5px 7px 5px 48px;
+      background-color: $bag-color;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7),
+        0 5px 12px 0 rgba(255, 104, 56, 0.2);
+      color: $interactive;
+      svg {
+        fill: $btn;
+        transform: translateX(0);
+      }
+    }
+
+    &:focus {
+      background-color: $bag-color;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      color: $interactive;
       svg {
         fill: $btn;
       }
     }
 
-    &:focus,
     &:active {
+      background-color: $bag-color;
+      color: $interactive;
       svg {
         fill: $btn;
       }
@@ -554,19 +588,24 @@ body {
     width: 24px;
     height: 24px;
     transform: stroke 0.3s;
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    transform: translateX(-50%);
+    transition: fill 0.3s, transform 0.3s;
   }
 }
 
 .customer-reviews {
-  text-align: center;
-  padding-bottom: 123px;
+  &__inner {
+    padding: 0 90px 123px;
+    text-align: center;
+    z-index: 0;
+  }
 
   &__title {
     margin-bottom: 45px;
-  }
-
-  &__slider {
-    // display: flex;
+    @include line-clamp(1);
   }
 
   &__content {
@@ -576,20 +615,42 @@ body {
 
   &__img {
     border-radius: 50%;
-    margin-right: 80px;
+    margin-right: 40px;
   }
 
   &__blockquote {
-    text-align: start;
     max-width: 570px;
     width: 100%;
+    text-align: start;
+    padding: 0 40px;
+    position: relative;
+
+    &::before,
+    &::after {
+      @extend %back;
+      background-image: url("../images/icons/quotes.svg");
+      width: 24px;
+      height: 20px;
+      position: absolute;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: 96px;
+      right: 0;
+      transform: scaleX(-1);
+    }
   }
 
   &__quote {
     @extend %italic-400;
-    font-weight: 400;
-    color: $subtitle;
+    @include line-clamp(5);
     margin-bottom: 30px;
+    color: $subtitle;
   }
 
   &__name {
@@ -598,43 +659,180 @@ body {
     font-weight: 500;
     line-height: 1.3;
     margin-bottom: 15px;
+    @include line-clamp(1);
   }
 
   &__slogan {
     color: $subtitle;
     font-size: 14px;
     line-height: 1.3;
+    @include line-clamp(1);
+  }
+}
+
+.swiper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 990px;
+  width: 100%;
+  z-index: 0;
+
+  &-slide {
+    display: flex;
+    align-items: center;
+    padding-bottom: 48px;
+  }
+
+  &__wrapper-arrow {
+    @extend %flex;
+    position: relative;
+    max-width: 219px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  &-pagination-bullet {
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      background-color: #fff2ed;
+      box-shadow: 0 0 0 2px $shadow;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px $btn;
+    }
+    &:active {
+      background-color: #ffae94;
+    }
+  }
+
+  &-pagination-bullet-active {
+    background-color: $btn;
+  }
+
+  &-button-next:after,
+  &-button-prev:after {
+    display: none;
+  }
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #c2c2c2;
+    border-radius: 34px;
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: $text-color;
+
+    &:hover {
+      background-color: #fff2ed;
+      border-color: #ffae94;
+
+      svg {
+        fill: #ffae94;
+      }
+    }
+    &:focus {
+      background-color: $text-color;
+      border-color: #ffae94;
+    }
+    &:active {
+      background-color: #fff2ed;
+      border-color: transparent;
+
+      svg {
+        fill: #ff7a50;
+      }
+    }
+  }
+
+  &__svg {
+    fill: none;
+    fill: #c2c2c2;
+    width: 11px;
+    height: 19px;
+    transform: scale(0.5);
+    transition: fill 0.3s;
+
+    &--rotate {
+      transform: scale(0.5) rotate(180deg);
+      transform-origin: center center;
+    }
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+}
+
+.download-mobile {
+  &__box {
+    @extend %flex;
+    padding-bottom: 120px;
+  }
+
+  &__inner {
+    max-width: 538px;
+    width: 100%;
+    margin-right: 62px;
+  }
+
+  &__title {
+    margin-bottom: 45px;
+    @include line-clamp(2);
+  }
+
+  &__text {
+    color: $subtitle;
+    margin-bottom: 30px;
+    @include line-clamp(3);
+  }
+
+  &__link {
+    width: 120px;
+    height: 40px;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__img {
+    display: inline-block;
+  }
+
+  &__photo {
+    @extend %back;
+    width: 570px;
+    height: 380px;
   }
 }
 
 .footer {
-  position: relative;
-
   &__box {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    column-gap: 70px;
     padding-bottom: 50px;
   }
 
   &__list {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    grid-template-rows: 40px 40px 40px;
+    grid-template-rows: 40px 43px 44px;
   }
 
   &__item {
     color: $subtitle;
     font-size: 18px;
     line-height: 1.3;
-    margin-right: 70px;
+    margin-right: 45px;
+    @include line-clamp(1);
 
     &:not(:last-child) {
       margin-bottom: 20px;
-    }
-
-    &:nth-child(3n) {
-      margin-right: 0;
     }
   }
 
@@ -653,17 +851,13 @@ body {
     color: $subtitle;
     font-size: 14px;
     line-height: 1;
+    @include line-clamp(1);
   }
 }
 
 .form-subscribe {
   max-width: 200px;
-  width: 100%;
-
-  &__logo {
-    display: block;
-    margin-bottom: 30px;
-  }
+  width: 200px;
 
   &__input {
     max-width: 200px;
@@ -718,12 +912,9 @@ body {
 }
 
 .contact-blok {
-  &__list {
-    margin-bottom: 15px;
-  }
+  margin-bottom: 15px;
 
   &__item {
-    @extend %align;
     font-size: 16px;
     line-height: 2;
     color: $subtitle;
@@ -745,7 +936,7 @@ body {
 
   &__svg {
     fill: none;
-    stroke: #363853;
+    stroke: $title;
     width: 20px;
     height: 20px;
     position: absolute;
@@ -755,9 +946,8 @@ body {
   }
 }
 
-.social {
+.social-contacts {
   display: flex;
-
   &__item {
     text-align: center;
     &:not(:last-child) {
@@ -766,8 +956,7 @@ body {
   }
 
   &__link {
-    @extend %flex;
-    justify-content: center;
+    @extend %j-center;
     width: 39px;
     height: 39px;
     border-radius: 50%;
@@ -782,8 +971,8 @@ body {
     }
 
     &:focus {
-      background-color: rgba(255, 122, 80, 0.1);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      background-color: $bag-color;
+      box-shadow: 0 0 0 2px $shadow;
     }
 
     &:active {

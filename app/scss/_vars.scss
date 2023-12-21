@@ -28,7 +28,6 @@ $shadow: rgba(255, 104, 56, 0.7);
 }
 
 %back {
-  content: "";
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -42,5 +41,11 @@ $shadow: rgba(255, 104, 56, 0.7);
 
 %align {
   display: flex;
+  align-items: center;
+}
+
+%j-center {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
