@@ -11,7 +11,7 @@
     position: relative;
     padding: 60px 0;
 
-    &-fixed {
+    &--fixed {
       position: fixed;
       max-width: 1200px;
       width: 100%;
@@ -44,6 +44,7 @@
 .logo {
   border-radius: 5px;
   transition: opacity 0.3s, box-shadow 0.3s;
+  object-fit: cover;
 
   &:hover {
     opacity: 0.7;
@@ -61,7 +62,7 @@
 .menu {
   @extend %flex;
 
-  &__header {
+  &--header {
     margin-right: 52px;
   }
 
@@ -78,15 +79,17 @@
     &--active {
       color: $btn;
     }
-
-    &.mixitup-control-active {
-      color: $btn;
-    }
   }
 }
 
 .user-nav {
   display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+  }
 
   &__btn {
     @extend %flex;
@@ -97,14 +100,7 @@
     padding: 10px;
     position: relative;
     background-color: transparent;
-    transition: background-color 0.3s, box-shadow 0.3s;
-
-    &:first-child {
-      margin-right: 7px;
-    }
-
     &:hover {
-      background-color: $interactive;
       svg {
         stroke: $text-color;
       }
@@ -113,15 +109,6 @@
     &:hover .user-nav__btn-num {
       background-color: $text-color;
       color: $btn;
-    }
-
-    &:focus {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px $shadow;
-    }
-
-    &:active {
-      background-color: #fff2ed;
     }
   }
 
@@ -180,60 +167,18 @@
   }
 
   &__link-btn {
-    display: inline-block;
-    width: 146px;
     padding: 12px 32px;
     border-radius: 6px;
     background-color: $btn;
     color: $text-color;
     margin-right: 24px;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-
-    &:hover {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7),
-        0 5px 12px 0 rgba(255, 104, 56, 0.2);
-      color: $interactive;
-    }
-
-    &:focus {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px $shadow;
-      color: $interactive;
-    }
-
-    &:active {
-      background-color: $bag-color;
-      color: $interactive;
-    }
-  }
-
-  &__link {
-    position: relative;
-    transition: color 0.3s, outline 0.3s, text-shadow 0.3s;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background-color: $title;
-      transition: height 0.3s;
-    }
-
-    &:hover::before,
-    &:focus::before,
-    &:active::before {
-      background-color: transparent;
-    }
   }
 
   &__img {
     @extend %back;
     background-position: right;
-    width: 550px;
+    max-width: 550px;
+    width: 100%;
     height: 660px;
   }
 }
@@ -247,7 +192,9 @@
 
   &__menu {
     display: flex;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding: 2px 3px 15px;
   }
 
   &__item:not(:last-child) {
@@ -259,22 +206,9 @@
     font-size: 20px;
     color: $title;
     background-color: $text-color;
-    box-shadow: 0px 0px 0px 1px #ececec;
-    border: 1px solid #ececec;
+    box-shadow: 0 0 0 1px #ececec;
     border-radius: 5px;
-
-    &--active {
-      background-color: $btn;
-      color: $text-color;
-    }
-
-    &.mixitup-control-active {
-      background-color: $btn;
-      color: $text-color;
-      svg {
-        stroke: $text-color;
-      }
-    }
+    white-space: nowrap;
 
     &:hover {
       background-color: $bag-color;
@@ -282,17 +216,17 @@
       color: $btn;
 
       svg {
-        stroke: $btn;
+        fill: $btn;
       }
     }
 
     &:focus {
       background-color: $text-color;
-      box-shadow: 0px 0px 0px 2px $shadow;
+      box-shadow: 0 0 0 2px $shadow;
       color: $title;
 
       svg {
-        stroke: $title;
+        fill: $title;
       }
     }
 
@@ -302,46 +236,30 @@
       color: $title;
 
       svg {
-        stroke: $title;
+        fill: $title;
+      }
+    }
+
+    &.mixitup-control-active {
+      background-color: $btn;
+      color: $text-color;
+      box-shadow: 0;
+      svg {
+        fill: $text-color;
       }
     }
   }
 
   &__svg {
-    fill: none;
-    stroke: $title;
+    fill: $title;
     width: 44px;
     height: 44px;
     margin-right: 9px;
-    transform: stroke 0.3s;
-  }
-
-  &__link {
-    position: relative;
-    transition: color 0.3s, outline 0.3s, text-shadow 0.3s;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 2px;
-      width: 100%;
-      height: 1px;
-      background-color: $title;
-      transition: height 0.3s;
-    }
-
-    &:hover::before,
-    &:focus::before,
-    &:active::before {
-      background-color: transparent;
-    }
+    transform: fill 0.3s;
   }
 
   &__list {
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
     padding-bottom: 60px;
   }
 }
@@ -358,7 +276,14 @@
   box-shadow: 0 0 0 1px #ececec;
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0px 0px 0px 1px $btn;
+    box-shadow: 0 0 0 1px $btn;
+  }
+
+  &__img {
+    max-width: 140px;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 10px;
   }
 
   &__title {
@@ -451,54 +376,17 @@
         brightness(101%) contrast(103%);
     }
   }
-
-  &__link {
-    display: inline-block;
-    max-width: 165px;
-    width: 100%;
-    padding: 12px 32px;
-    font-size: 18px;
-    line-height: 1.3;
-    border-radius: 6px;
-    background-color: $btn;
-    color: $text-color;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-
-    &:hover {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7),
-        0 5px 12px 0 rgba(255, 104, 56, 0.2);
-      color: $interactive;
-    }
-
-    &:focus {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-      color: $interactive;
-    }
-
-    &:active {
-      background-color: $bag-color;
-      color: $interactive;
-    }
-  }
 }
 
 .best-cafe {
   &__inner {
     padding-bottom: 120px;
-    text-align: center;
   }
 
   &__title {
-    margin-bottom: 45px;
+    width: fit-content;
+    margin: 0 auto 45px;
     @include line-clamp(1);
-  }
-  &__menu {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    text-align: left;
   }
 }
 
@@ -526,15 +414,15 @@
   }
 
   &__box-time {
+    position: relative;
     @extend %align;
 
     &::before {
+      @include pseudo;
       @extend %back;
-      background-image: url("../images/icons/timer.svg");
-      display: block;
+      background-image: url("../images/sprite.svg#timer");
       width: 22px;
       height: 22px;
-      margin-right: 10px;
     }
   }
 
@@ -543,22 +431,21 @@
     font-weight: 300;
     margin-right: auto;
     @include line-clamp(1);
+    padding-left: 30px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
   }
 
   &__link {
-    display: inline-block;
     position: relative;
-    width: 79px;
-    height: 33px;
-    background-color: $btn;
+    padding: 16px 39px;
     border-radius: 20px;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 
     &:hover {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7),
-        0 5px 12px 0 rgba(255, 104, 56, 0.2);
-      color: $interactive;
       svg {
         fill: $btn;
         transform: translateX(0);
@@ -566,17 +453,12 @@
     }
 
     &:focus {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-      color: $interactive;
       svg {
         fill: $btn;
       }
     }
 
     &:active {
-      background-color: $bag-color;
-      color: $interactive;
       svg {
         fill: $btn;
       }
@@ -584,11 +466,9 @@
   }
 
   &__svg {
-    fill: none;
     fill: $text-color;
     width: 24px;
     height: 24px;
-    transform: stroke 0.3s;
     position: absolute;
     left: 50%;
     top: 4px;
@@ -600,18 +480,24 @@
 .customer-reviews {
   &__inner {
     padding: 0 90px 123px;
-    text-align: center;
-    z-index: 0;
   }
 
   &__title {
-    margin-bottom: 45px;
+    width: fit-content;
+    margin: 0 auto 45px;
     @include line-clamp(1);
   }
 
-  &__content {
-    @extend %align;
-    padding: 0 89px;
+  &__swiper {
+    max-width: 990px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    padding-bottom: 48px;
   }
 
   &__img {
@@ -619,20 +505,31 @@
     margin-right: 40px;
   }
 
-  &__blockquote {
+  &__figure {
     max-width: 570px;
     width: 100%;
-    text-align: start;
-    padding: 0 40px;
+  }
+
+  &__blockquote {
+    width: 570px;
+    width: 100%;
     position: relative;
+    @extend %italic-400;
+
+    @include line-clamp(6);
+    margin-bottom: 30px;
+    color: $subtitle;
+    padding: 0 40px;
 
     &::before,
     &::after {
+      @include pseudo;
       @extend %back;
-      background-image: url("../images/icons/quotes.svg");
+      background-image: url("../images/sprite.svg#quotes");
       width: 24px;
       height: 20px;
-      position: absolute;
+      filter: invert(94%) sepia(0%) saturate(0%) hue-rotate(153deg)
+        brightness(87%) contrast(84%);
     }
 
     &::before {
@@ -641,17 +538,10 @@
     }
 
     &::after {
-      bottom: 96px;
+      bottom: 0;
       right: 0;
       transform: scaleX(-1);
     }
-  }
-
-  &__quote {
-    @extend %italic-400;
-    @include line-clamp(5);
-    margin-bottom: 30px;
-    color: $subtitle;
   }
 
   &__name {
@@ -661,6 +551,7 @@
     line-height: 1.3;
     margin-bottom: 15px;
     @include line-clamp(1);
+    padding-left: 40px;
   }
 
   &__slogan {
@@ -668,97 +559,100 @@
     font-size: 14px;
     line-height: 1.3;
     @include line-clamp(1);
-  }
-}
-
-.swiper {
-  max-width: 990px;
-  width: 100%;
-  z-index: 0;
-
-  &-slide {
-    display: flex;
-    align-items: center;
-    padding-bottom: 48px;
+    padding-left: 40px;
   }
 
-  &__wrapper-arrow {
+  &__arrow {
     @extend %flex;
     position: relative;
-    max-width: 219px;
+    max-width: 289px;
     width: 100%;
-    padding: 20px;
+    z-index: 0;
+    padding: 0 40px;
   }
 
-  &-pagination-bullet {
-    width: 15px;
-    height: 15px;
-
-    &:hover {
-      background-color: #fff2ed;
-      box-shadow: 0 0 0 2px $shadow;
-    }
-    &:focus {
-      box-shadow: 0 0 0 2px $btn;
-    }
-    &:active {
-      background-color: #ffae94;
-    }
-  }
-
-  &-pagination-bullet-active {
-    background-color: $btn;
-  }
-
-  &-button-next:after,
-  &-button-prev:after {
-    display: none;
-  }
-
-  &__btn {
+  &__btn-next,
+  &__btn-prev {
     width: 40px;
     height: 40px;
-    border: 3px solid #c2c2c2;
+    border: 3px solid $border-color;
     border-radius: 34px;
     margin-right: -15px;
     margin-left: -15px;
     background-color: $text-color;
 
     &:hover {
-      background-color: #fff2ed;
-      border-color: #ffae94;
+      background-color: $slide-color;
+      border-color: $swiper-color;
 
       svg {
-        fill: #ffae94;
+        fill: $swiper-color;
       }
     }
     &:focus {
-      background-color: $text-color;
-      border-color: #ffae94;
+      background-color: transparent;
+      border-color: $swiper-color;
     }
     &:active {
-      background-color: #fff2ed;
+      background-color: $slide-color;
       border-color: transparent;
 
       svg {
-        fill: #ff7a50;
+        fill: $interactive;
       }
     }
   }
 
   &__svg {
-    fill: none;
-    fill: #c2c2c2;
+    fill: $border-color;
     width: 11px;
     height: 19px;
-    transform: scale(0.5);
     transition: fill 0.3s;
 
     &--rotate {
-      transform: scale(0.5) rotate(180deg);
-      transform-origin: center center;
+      transform: rotate(180deg);
+      // transform-origin: center center;
     }
   }
+
+  // &__dots {
+  //   margin-right: 8px;
+  //   width: 0;
+  //   left: 38px;
+  // }
+
+  .swiper-button-disabled {
+    border-color: $btn;
+  }
+
+  // .swiper-pagination {
+  //   z-index: 0;
+  // }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      background-color: $slide-color;
+      box-shadow: 0 0 0 2px $shadow;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px $btn;
+    }
+    &:active {
+      background-color: $swiper-color;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $btn;
+  }
+
+  // .swiper-button-next:after,
+  // .swiper-button-prev:after {
+  //   display: none;
+  // }
 
   .swiper-pagination-horizontal.swiper-pagination-bullets
     .swiper-pagination-bullet {
@@ -789,17 +683,11 @@
     @include line-clamp(3);
   }
 
-  &__link {
-    width: 120px;
-    height: 40px;
-
+  &__item {
+    display: flex;
     &:not(:last-child) {
       margin-right: 30px;
     }
-  }
-
-  &__img {
-    display: inline-block;
   }
 
   &__photo {
@@ -842,7 +730,7 @@
   &__bottom {
     text-align: center;
     padding: 30px 0;
-    border-top: 1px solid #c2c2c2;
+    border-top: 1px solid rgba(194, 194, 194, 0.3);
   }
 
   &__text {
@@ -864,12 +752,12 @@
     margin-bottom: 12px;
     font-size: 14px;
     line-height: 1.3;
-    border: 1px solid #c2c2c2;
+    border: 1px solid $border-color;
     border-radius: 5px;
     transition: border 0.3s, outline 0.3s;
 
     &::placeholder {
-      color: #c2c2c2;
+      color: $border-color;
       transition: color 0.3s;
     }
 
@@ -959,27 +847,27 @@
     height: 39px;
     border-radius: 50%;
     background-color: #ececec;
-    transition: background-color 0.3s, box-shadow 0.3s;
 
     &:hover {
-      background-color: $interactive;
       svg {
         fill: $text-color;
       }
     }
 
     &:focus {
-      background-color: $bag-color;
-      box-shadow: 0 0 0 2px $shadow;
+      svg {
+        fill: $subtitle;
+      }
     }
 
     &:active {
-      background-color: #fff2ed;
+      svg {
+        fill: $btn;
+      }
     }
   }
 
   &__svg {
-    fill: none;
     fill: $subtitle;
     width: 21px;
     height: 21px;

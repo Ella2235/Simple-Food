@@ -1,21 +1,20 @@
-$(function () {
-  var mixer = mixitup(".popular-category");
+const stickyHeader = $(".header__inner");
+const stickySection = $(".hero__inner");
+const scrollChange = 1;
 
-  var stickyHeader = $(".header__inner");
-  var scrollChange = 1;
+$(window).scroll(function () {
+  const scroll = $(window).scrollTop();
 
-  $(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-
-    if (scroll >= scrollChange) {
-      stickyHeader.addClass("header__inner-fixed");
-    } else {
-      stickyHeader.removeClass("header__inner-fixed");
-    }
-  });
+  if (scroll >= scrollChange) {
+    stickyHeader.addClass("header__inner--fixed");
+    stickySection.addClass("hero__inner--fixed");
+  } else {
+    stickyHeader.removeClass("header__inner--fixed");
+    stickySection.removeClass("hero__inner--fixed");
+  }
 });
 
-const swiper = new Swiper(".swiper", {
+const swiper = new Swiper(".customer-reviews__swiper", {
   // slidesPerView: 4,
   // spaceBetween: 30,
   loop: true,
@@ -31,7 +30,9 @@ const swiper = new Swiper(".swiper", {
   },
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".customer-reviews__btn-next",
+    prevEl: ".customer-reviews__btn-prev",
   },
 });
+
+const mixer = mixitup(".popular-category");
