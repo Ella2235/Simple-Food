@@ -7,6 +7,7 @@ $bag-color: rgba(255, 122, 80, 0.1);
 $hover-color: rgba(255, 255, 255, 0.1);
 $interactive: #ff7a50;
 $shadow: rgba(255, 104, 56, 0.7);
+$shadow-color: rgba(255, 104, 56, 0.2);
 $border-color: #c2c2c2;
 $slide-color: #fff2ed;
 $swiper-color: #ffae94;
@@ -49,7 +50,5 @@ $swiper-color: #ffae94;
 }
 
 %j-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %j-center;
 }

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Food</title>
     <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon.svg">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="images/icons/Favicon.svg" color="#5bbad5">
+    <link rel="mask-icon" href="images/Favicon.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/style.min.css">
@@ -23,10 +23,69 @@
                     <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
                 </a>
                 <nav class="header__nav">
-                    <button class="header__burger" type="button">
-                        <span class="header__burger-bar"></span>
-                        <span class="sr-only">меню</span>
+                    <button class="menu__burger" type="button">
+                        <span class="menu__burger-bar"></span>
+                        <span class="sr-only">Открыть меню</span>
                     </button>
+                    <div class="menu__burger-inner">
+                        <button class="menu__burger-x"></button>
+                        <span class="sr-only">Закрыть меню</span>
+                    </div>
+                    <div class="menu__info">
+
+                        <ul class="menu__contacts contact-blok__inner ">
+                            <li class="menu__contact contact-blok__item ">
+                                <a class="menu__contact-link contact-blok__link link" target="_blank" href="#">
+                                    <svg class="menu__svg contact-blok__svg">
+                                        <use xlink:href="images/sprite.svg#Location"></use>
+                                    </svg>
+                                    ул. Т.Г.Шевченко, 1
+                                </a>
+                            </li>
+                            <li class="menu__contact contact-blok__item ">
+                                <a class="menu__contact-link contact-blok__link link" href="tel:380501112233">
+                                    <svg class="menu__svg contact-blok__svg">
+                                        <use xlink:href="images/sprite.svg#calling"></use>
+                                    </svg>
+                                    380501112233
+                                </a>
+                            </li>
+                            <li class="menu__contact contact-blok__item">
+                                <a class="menu__contact-link contact-blok__link link" href="mailto:support@sfood.com">
+                                    <svg class=" menu__svg contact-blok__svg">
+                                        <use xlink:href="images/sprite.svg#message"></use>
+                                    </svg>
+                                    support@sfood.com
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="social-contacts">
+                            <li class="social-contacts__item">
+                                <a class="social-contacts__link button-user" target="_blank" href="#">
+                                    <svg class="menu__svg social-contacts__svg">
+                                        <use xlink:href="images/sprite.svg#ic-facebook"></use>
+                                    </svg>
+                                    <span class="sr-only">подписывайтесь на нашу страницу facebook</span>
+                                </a>
+                            </li>
+                            <li class="social-contacts__item">
+                                <a class="social-contacts__link button-user" target="_blank" href="#">
+                                    <svg class="social-contacts__svg">
+                                        <use xlink:href="images/sprite.svg#ic-twitter"></use>
+                                    </svg>
+                                    <span class="sr-only">подписывайтесь на нашу страницу twitter</span>
+                                </a>
+                            </li>
+                            <li class="social-contacts__item">
+                                <a class="social-contacts__link button-user" target="_blank" href="#">
+                                    <svg class="social-contacts__svg">
+                                        <use xlink:href="images/sprite.svg#ic-instagram"></use>
+                                    </svg>
+                                    <span class="sr-only"> подписывайтесь на нашу страницу instagram</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <ul class="menu menu--header">
                         <li class="menu__item">
                             <a class="menu__link link menu__link--active" href="#">Главная</a>
@@ -77,7 +136,7 @@
 
                         </p>
                         <a class="hero__link-btn button" href="#">Заказать</a>
-                        <a class="hero__link link border__link" href="#">Подробнее</a>
+                        <a class="hero__link link border-link" href="#">Подробнее</a>
                     </div>
                     <div class="hero__img" style="background-image: url(images/scooter.png);">
                         <span class="sr-only">Мультяшная фотография, парень на скутаре</span>
@@ -156,7 +215,7 @@
                         </article>
                     </li>
 
-                    <li class="popul-category__box">
+                    <li class="popular-category__box">
                         <article class="product-card">
                             <img class="product-card__img" src="images/burger.card/burger3.jpg" width="140" height="140"
                                 alt="Королевский чизбургер">
@@ -168,7 +227,7 @@
                         </article>
                     </li>
 
-                    <li class="popul-category__box">
+                    <li class="popular-category__box">
                         <article class="product-card">
                             <img class="product-card__img" src="images/burger.card/burger4.jpg" width="140" height="140"
                                 alt="Черный гамбургер">
@@ -252,7 +311,7 @@
                         </article>
                     </li>
                 </ul>
-                <a class="popular-category__link  link border__link" href="#">Показать еще</a>
+                <a class="popular-category__link  link border-link" href="#">Показать еще</a>
             </div>
         </section>
 
@@ -296,110 +355,115 @@
             <div class="container">
                 <div class="best-cafe__inner">
                     <h2 class="best-cafe__title title">Лучшие рестораны</h2>
-                    <ul class="best-cafe__menu d-grid">
-                        <li class="bestcafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe1.jpg" width="370" height="300"
-                                    alt="Blaze Pizza">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">Blaze Pizza</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">11:00 - 22:00</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                    <div class="best-cafe__swiper">
+                        <ul class="best-cafe__menu d-grid swiper-wrapper">
+                            <li class="best-cafe__item swiper-slide ">
+                                <article class="card-cafe ">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe1.jpg" width="370"
+                                        height="300" alt="Blaze Pizza">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">Blaze Pizza</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">11:00 - 22:00</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="best-cafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe2.jpg" width="370" height="300"
-                                    alt="Pizza Runcho">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">Pizza Runcho</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">12:00 - 21:00</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                                </article>
+                            </li>
+                            <li class="best-cafe__item swiper-slide">
+                                <article class="card-cafe ">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe2.jpg" width="370"
+                                        height="300" alt="Pizza Runcho">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">Pizza Runcho</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">12:00 - 21:00</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="best-cafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe3.jpg" width="370" height="300"
-                                    alt="Pizza Hut">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">Pizza Hut</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">11:00 - 22:00</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                                </article>
+                            </li>
+                            <li class="best-cafe__item swiper-slide">
+                                <article class="card-cafe">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe3.jpg" width="370"
+                                        height="300" alt="Pizza Hut">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">Pizza Hut</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">11:00 - 22:00</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="best-cafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe4.jpg" width="370" height="300"
-                                    alt="McDonald`s">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">McDonald`s</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">06:00 - 23:00</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                                </article>
+                            </li>
+                            <li class="best-cafe__item swiper-slide">
+                                <article class="card-cafe ">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe4.jpg" width="370"
+                                        height="300" alt="McDonald`s">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">McDonald`s</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">06:00 - 23:00</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="best-cafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe5.jpg" width="370" height="300"
-                                    alt="KFC">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">KFC</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">06:00 - 23:30</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                                </article>
+                            </li>
+                            <li class="best-cafe__item swiper-slide">
+                                <article class="card-cafe ">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe5.jpg" width="370"
+                                        height="300" alt="KFC">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">KFC</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">06:00 - 23:30</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li class="best-cafe__item">
-                            <article class="card-cafe">
-                                <img class="card-cafe__img" src="images/burger.card/cafe6.jpg" width="370" height="300"
-                                    alt="Star Burgers">
-                                <div class="card-cafe__box">
-                                    <h3 class="card-cafe__subtitle">Star Burgers</h3>
-                                    <div class="card-cafe__box-time">
-                                        <span class="card-cafe__time">09:00 - 21:00</span>
-                                        <a class="card-cafe__link button" href="#">
-                                            <svg class="card-cafe__svg">
-                                                <use xlink:href="images/sprite.svg#small-right"></use>
-                                            </svg>
-                                        </a>
+                                </article>
+                            </li>
+                            <li class="best-cafe__item swiper-slide">
+                                <article class="card-cafe">
+                                    <img class="card-cafe__img" src="images/burger.card/cafe6.jpg" width="370"
+                                        height="300" alt="Star Burgers">
+                                    <div class="card-cafe__box">
+                                        <h3 class="card-cafe__subtitle">Star Burgers</h3>
+                                        <div class="card-cafe__box-time">
+                                            <span class="card-cafe__time">09:00 - 21:00</span>
+                                            <a class="card-cafe__link button" href="#">
+                                                <svg class="card-cafe__svg">
+                                                    <use xlink:href="images/sprite.svg#small-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-cafe__dots">
+                    <div class=" swiper-pagination"> </div>
                 </div>
             </div>
         </section>
@@ -416,21 +480,23 @@
                             <li class="customer-reviews__slide swiper-slide">
                                 <img class="customer-reviews__img" src="images/customer.jpg" width="300" height="300"
                                     alt="Дарья">
-                                <figure class="customer-reviews__figure">
+                                <div class="customer-reviews__figure">
                                     <blockquote class="customer-reviews__blockquote">
                                         SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе.
                                         Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны.
                                         Компания часто
                                         проводит акции и дарит скидки на доставку - однозначно рекомендую!
                                     </blockquote>
-                                    <figcaption class="customer-reviews__name">Дарья </figcaption>
-                                    <span class="customer-reviews__slogan">Ценитель вкусной еды</span>
-                                </figure>
+                                    <div class="customer-reviews__slogan">
+                                        <span class="customer-reviews__name">Дарья </span>
+                                        <span class="customer-reviews__text">Ценитель вкусной еды</span>
+                                    </div>
+                                </div>
                             </li>
                             <li class="customer-reviews__slide swiper-slide">
                                 <img class="customer-reviews__img" src="images/customer.jpg" width="300" height="300"
                                     alt="Дарья">
-                                <figure class="customer-reviews__figure">
+                                <div class="customer-reviews__figure">
                                     <blockquote class="customer-reviews__blockquote">
                                         SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе.
                                         Очень
@@ -440,14 +506,16 @@
                                         акции
                                         и дарит скидки на доставку - однозначно рекомендую!
                                     </blockquote>
-                                    <figcaption class="customer-reviews__name">Дарья</figcaption>
-                                    <span class="customer-reviews__slogan">Ценитель вкусной еды</span>
-                                </figure>
+                                    <div class="customer-reviews__slogan">
+                                        <span class="customer-reviews__name">Дарья</span>
+                                        <span class="customer-reviews__text">Ценитель вкусной еды</span>
+                                    </div>
+                                </div>
                             </li>
                             <li class="customer-reviews__slide swiper-slide">
                                 <img class="customer-reviews__img" src="images/customer.jpg" width="300" height="300"
                                     alt="Дарья">
-                                <figure class="customer-reviews__figure">
+                                <div class="customer-reviews__figure">
                                     <blockquote class="customer-reviews__blockquote">
                                         SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе.
                                         Очень
@@ -457,14 +525,16 @@
                                         акции
                                         и дарит скидки на доставку - однозначно рекомендую!
                                     </blockquote>
-                                    <figcaption class="customer-reviews__name">Дарья</figcaption>
-                                    <span class="customer-reviews__slogan">Ценитель вкусной еды</span>
-                                </figure>
+                                    <div class="customer-reviews__slogan">
+                                        <span class="customer-reviews__name">Дарья</span>
+                                        <span class="customer-reviews__text">Ценитель вкусной еды</span>
+                                    </div>
+                                </div>
                             </li>
                             <li class="customer-reviews__slide swiper-slide">
                                 <img class="customer-reviews__img" src="images/customer.jpg" width="300" height="300"
                                     alt="Дарья">
-                                <figure class="customer-reviews__figure">
+                                <div class="customer-reviews__figure">
                                     <blockquote class="customer-reviews__blockquote">
                                         SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе.
                                         Очень
@@ -474,27 +544,29 @@
                                         акции
                                         и дарит скидки на доставку - однозначно рекомендую!
                                     </blockquote>
-                                    <figcaption class="customer-reviews__name">Дарья</figcaption>
-                                    <span class="customer-reviews__slogan">Ценитель вкусной еды</span>
-                                </figure>
+                                    <div class="customer-reviews__slogan">
+                                        <span class="customer-reviews__name">Дарья</span>
+                                        <span class="customer-reviews__text">Ценитель вкусной еды</span>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
 
                         <div class="customer-reviews__arrow">
-                            <div class="customer-reviews__dots swiper-pagination"> </div>
-                            <button class="customer-reviews__btn-next  swiper-button-disabled " type="button">
+
+                            <button class="customer-reviews__btn-prev" type="button">
                                 <svg class="customer-reviews__svg">
                                     <use xlink:href="images/sprite.svg#vector"></use>
                                 </svg>
                             </button>
 
-                            <button class=" customer-reviews__btn-prev " type="button">
+                            <button class=" customer-reviews__btn-next" type="button">
                                 <svg class="customer-reviews__svg customer-reviews__svg--rotate">
                                     <use xlink:href="images/sprite.svg#vector"></use>
                                 </svg>
                             </button>
 
-
+                            <div class="customer-reviews__dots swiper-pagination"> </div>
 
 
                         </div>
@@ -564,7 +636,7 @@
 
                 <ul class="footer__list">
                     <li class="footer__item">
-                        <a class="footer__link link" href="#">Как это работает </a>
+                        <a class="footer__link link" href="#">Как это работает</a>
                     </li>
                     <li class="footer__item">
                         <a class="footer__link link" href="#">О нас</a>
@@ -604,8 +676,8 @@
                     </li>
                 </ul>
 
-                <address class="contact__inner">
-                    <ul class="contact-blok">
+                <address class="contact-blok">
+                    <ul class="contact-blok__inner">
                         <li class="contact-blok__item">
                             <a class="contact-blok__link link" target="_blank" href="#">
                                 <svg class="contact-blok__svg">
@@ -615,7 +687,7 @@
                             </a>
                         </li>
                         <li class="contact-blok__item">
-                            <a class="contact-blok__link link" href="tel: 380501112233">
+                            <a class="contact-blok__link link" href="tel:380501112233">
                                 <svg class="contact-blok__svg">
                                     <use xlink:href="images/sprite.svg#calling"></use>
                                 </svg>
