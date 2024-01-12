@@ -17,76 +17,17 @@
 
 <body>
     <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="logo" href="#">
-                    <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
-                </a>
-                <nav class="header__nav">
-                    <button class="menu__burger" type="button">
-                        <span class="menu__burger-bar"></span>
+        <div class="header__inner">
+            <div class="container">
+                <nav class="header__nav ">
+                    <a class="logo" href="#">
+                        <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
+                    </a>
+                    <button class="burger-open" type="button">
+                        <span class="burger-open__bar"></span>
                         <span class="sr-only">Открыть меню</span>
                     </button>
-                    <div class="menu__burger-inner">
-                        <button class="menu__burger-x"></button>
-                        <span class="sr-only">Закрыть меню</span>
-                    </div>
-                    <div class="menu__info">
-
-                        <ul class="menu__contacts contact-blok__inner ">
-                            <li class="menu__contact contact-blok__item ">
-                                <a class="menu__contact-link contact-blok__link link" target="_blank" href="#">
-                                    <svg class="menu__svg contact-blok__svg">
-                                        <use xlink:href="images/sprite.svg#Location"></use>
-                                    </svg>
-                                    ул. Т.Г.Шевченко, 1
-                                </a>
-                            </li>
-                            <li class="menu__contact contact-blok__item ">
-                                <a class="menu__contact-link contact-blok__link link" href="tel:380501112233">
-                                    <svg class="menu__svg contact-blok__svg">
-                                        <use xlink:href="images/sprite.svg#calling"></use>
-                                    </svg>
-                                    380501112233
-                                </a>
-                            </li>
-                            <li class="menu__contact contact-blok__item">
-                                <a class="menu__contact-link contact-blok__link link" href="mailto:support@sfood.com">
-                                    <svg class=" menu__svg contact-blok__svg">
-                                        <use xlink:href="images/sprite.svg#message"></use>
-                                    </svg>
-                                    support@sfood.com
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="social-contacts">
-                            <li class="social-contacts__item">
-                                <a class="social-contacts__link button-user" target="_blank" href="#">
-                                    <svg class="menu__svg social-contacts__svg">
-                                        <use xlink:href="images/sprite.svg#ic-facebook"></use>
-                                    </svg>
-                                    <span class="sr-only">подписывайтесь на нашу страницу facebook</span>
-                                </a>
-                            </li>
-                            <li class="social-contacts__item">
-                                <a class="social-contacts__link button-user" target="_blank" href="#">
-                                    <svg class="social-contacts__svg">
-                                        <use xlink:href="images/sprite.svg#ic-twitter"></use>
-                                    </svg>
-                                    <span class="sr-only">подписывайтесь на нашу страницу twitter</span>
-                                </a>
-                            </li>
-                            <li class="social-contacts__item">
-                                <a class="social-contacts__link button-user" target="_blank" href="#">
-                                    <svg class="social-contacts__svg">
-                                        <use xlink:href="images/sprite.svg#ic-instagram"></use>
-                                    </svg>
-                                    <span class="sr-only"> подписывайтесь на нашу страницу instagram</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="menu menu--header">
+                    <ul class="menu header__menu ">
                         <li class="menu__item">
                             <a class="menu__link link menu__link--active" href="#">Главная</a>
                         </li>
@@ -97,7 +38,7 @@
                             <a class="menu__link link" href="#">Контакты</a>
                         </li>
                     </ul>
-                    <ul class="user-nav">
+                    <ul class="user-nav header__user">
                         <li class="user-nav__item">
                             <button class="user-nav__btn button-user" type="button">
                                 <svg class="user-nav__svg">
@@ -118,6 +59,82 @@
                     </ul>
                 </nav>
             </div>
+        </div>
+        <div class="info">
+            <div class="info__inner">
+                <a class="info__logo logo " href="#">
+                    <img class="info__img logo__img " src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
+                </a>
+                <button class="burger-close" type="button">
+                    <span class="sr-only">Закрыть меню</span>
+                </button>
+            </div>
+
+            <ul class="menu">
+                <li class="menu__item">
+                    <a class="menu__link link menu__link--active" href="#">Главная</a>
+                </li>
+                <li class="menu__item ">
+                    <a class="menu__link link" href="#">Блюда</a>
+                </li>
+                <li class="menu__item info__item">
+                    <a class="menu__link link" href="#">Контакты</a>
+                </li>
+            </ul>
+
+            <ul class="contact-blok__inner">
+                <li class="contact-blok__item ">
+                    <a class="contact-blok__link link" target="_blank" href="#">
+                        <svg class="contact-blok__svg">
+                            <use xlink:href="images/sprite.svg#Location"></use>
+                        </svg>
+                        ул. Т.Г.Шевченко, 1
+                    </a>
+                </li>
+                <li class="contact-blok__item">
+                    <a class="contact-blok__link link" href="tel:380501112233">
+                        <svg class="contact-blok__svg">
+                            <use xlink:href="images/sprite.svg#calling"></use>
+                        </svg>
+                        380501112233
+                    </a>
+                </li>
+                <li class="contact-blok__item ">
+                    <a class="contact-blok__link link" href="mailto:support@sfood.com">
+                        <svg class="contact-blok__svg">
+                            <use xlink:href="images/sprite.svg#message"></use>
+                        </svg>
+                        support@sfood.com
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="social-contacts">
+                <li class="social-contacts__item">
+                    <a class="social-contacts__link button-user" target="_blank" href="#">
+                        <svg class="social-contacts__svg">
+                            <use xlink:href="images/sprite.svg#ic-facebook"></use>
+                        </svg>
+                        <span class="sr-only">подписывайтесь на нашу страницу facebook</span>
+                    </a>
+                </li>
+                <li class="social-contacts__item">
+                    <a class="social-contacts__link button-user" target="_blank" href="#">
+                        <svg class="social-contacts__svg">
+                            <use xlink:href="images/sprite.svg#ic-twitter"></use>
+                        </svg>
+                        <span class="sr-only">подписывайтесь на нашу страницу twitter</span>
+                    </a>
+                </li>
+                <li class="social-contacts__item">
+                    <a class="social-contacts__link button-user" target="_blank" href="#">
+                        <svg class="social-contacts__svg">
+                            <use xlink:href="images/sprite.svg#ic-instagram"></use>
+                        </svg>
+                        <span class="sr-only"> подписывайтесь на нашу страницу instagram</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>
 
@@ -289,8 +306,8 @@
 
                     <li class="popular-category__box">
                         <article class="product-card">
-                            <img class="product-card__img" src="images/burger.card/burger9.jpg" width="140" height="140"
-                                alt="Черный гамбургер">
+                            <img class="product-card__img" src="images/burger.card/burger8.jpg" width="140" height="140"
+                                alt="Королевский чизбургер">
                             <h3 class="product-card__title">Черный гамбургер</h3>
                             <span class="product-card__price">199
                                 <span class="product-card__price"> грн.</span>
@@ -355,7 +372,7 @@
             <div class="container">
                 <div class="best-cafe__inner">
                     <h2 class="best-cafe__title title">Лучшие рестораны</h2>
-                    <div class="best-cafe__swiper">
+                    <div class="best-cafe__swiper swiper-container">
                         <ul class="best-cafe__menu d-grid swiper-wrapper">
                             <li class="best-cafe__item swiper-slide ">
                                 <article class="card-cafe ">
@@ -460,10 +477,10 @@
                                 </article>
                             </li>
                         </ul>
+                        <div class="best-cafe__dots">
+                            <div class="best-cafe__pagination swiper-pagination"> </div>
+                        </div>
                     </div>
-                </div>
-                <div class="best-cafe__dots">
-                    <div class=" swiper-pagination"> </div>
                 </div>
             </div>
         </section>

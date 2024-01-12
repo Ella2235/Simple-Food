@@ -50,5 +50,7 @@ $swiper-color: #ffae94;
 }
 
 %j-center {
-  @extend %j-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
