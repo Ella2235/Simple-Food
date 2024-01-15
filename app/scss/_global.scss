@@ -100,7 +100,7 @@ body {
   }
 
   &:active {
-    text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+    text-shadow: 2px 2px 5px $link-color;
   }
 }
 
@@ -142,7 +142,8 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+    background-color: $lock-color;
   }
 }
 

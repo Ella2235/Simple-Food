@@ -34,24 +34,24 @@ const swiper = new Swiper(".customer-reviews__swiper", {
 document.addEventListener("DOMContentLoaded", () => {
   //Mobile Menu
   const burger = document.querySelector(".burger-open"); //наша кнопка
-  const mobileMenu = document.querySelector(".info"); //мобильное меню
+  const mobileMenu = document.querySelector(".info-contacts"); //мобильное меню
   const bodyLock = document.querySelector("body"); //ищем как селектор ТЕГА
   const burgerClose = document.querySelector(".burger-close");
   burger.addEventListener("click", () => {
-    mobileMenu.classList.add("info--active");
-    if (mobileMenu.classList.contains("info--active")) {
+    mobileMenu.classList.add("info-contacts--active");
+    if (mobileMenu.classList.contains("info-contacts--active")) {
       bodyLock.classList.add("lock");
     }
   });
 
   burgerClose.addEventListener("click", () => {
-    mobileMenu.classList.remove("info--active");
+    mobileMenu.classList.remove("info-contacts--active");
     bodyLock.classList.remove("lock");
   });
 
   document.addEventListener("click", function (e) {
     if (e.target !== burger && e.target !== mobileMenu) {
-      mobileMenu.classList.remove("info--active");
+      mobileMenu.classList.remove("info-contacts--active");
       bodyLock.classList.remove("lock");
     }
   });
@@ -121,31 +121,13 @@ window.addEventListener("DOMContentLoaded", () => {
   resizableSwiper("(max-width: 768px)", ".best-cafe__swiper", {
     direction: "horizontal",
     speed: 700,
-    spaceBetween: 0,
+    spaceBetween: 20,
     slidesPerView: 1,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
   });
-
-  // resizableSwiper("(max-width: 560px)", ".best-cafe__swiper", {
-  //   slidesPerView: 1,
-  //   spaceBetween: 0,
-  //   slidesPerGroup: 1,
-  // });
-
-  // swiper.on("init", function () {
-  //   console.log("Swiper initialized successfully");
-  // });
-
-  // swiper.on("slideChange", function () {
-  //   console.log("Slide changed");
-  // });
-
-  // swiper.on("error", function (e) {
-  //   console.error("Swiper error", e);
-  // });
 });
 
 const mixer = mixitup(".popular-category");
