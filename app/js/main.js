@@ -130,4 +130,21 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+$(function () {
+  $(".select-style").styler();
+
+  $(".catalog__input-price").ionRangeSlider({
+    type: "double",
+    prefix: "$",
+    onStart: function (data) {
+      $(".catalog__price-from").text(data.from);
+      $(".catalog__price-to").text(data.to);
+    },
+    onChange: function (data) {
+      $(".catalog__price-from").text(data.from);
+      $(".catalog__price-to").text(data.to);
+    },
+  });
+});
+
 const mixer = mixitup(".popular-category");
