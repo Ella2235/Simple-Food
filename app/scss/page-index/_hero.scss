@@ -1,0 +1,141 @@
+.hero {
+  &__inner {
+    @extend %flex;
+    padding-bottom: 120px;
+
+    @include mq("tablet-2") {
+      width: 100%;
+      height: 550px;
+      position: relative;
+      z-index: -1;
+      padding-bottom: 92px;
+    }
+
+    @include mq("tablet") {
+      height: 445px;
+    }
+
+    @include mq("phone") {
+      padding-bottom: 65px;
+      height: 340px;
+    }
+
+    @include mqheight("landscape") {
+      height: 460px;
+    }
+  }
+
+  &__text {
+    max-width: 450px;
+    width: 100%;
+    margin-right: 160px;
+
+    @include mq("desktop") {
+      margin-right: 45px;
+    }
+
+    @include mq("tablet-2") {
+      margin-right: 0;
+      width: 400px;
+    }
+
+    @include mq("tablet") {
+    }
+
+    @include mq("phone") {
+      width: 345px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    line-height: 1.3;
+    font-size: 66px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    @include line-clamp(2);
+
+    @include mq("tablet-2") {
+      font-size: 48px;
+      width: 400px;
+    }
+
+    @include mq("phone") {
+      font-size: 40px;
+      width: 257px;
+    }
+  }
+
+  &__color {
+    color: $btn;
+  }
+
+  &__slogan {
+    margin-bottom: 20px;
+    color: $subtitle;
+    @include line-clamp(4);
+
+    @include mq("phone") {
+      font-size: 16px;
+    }
+  }
+
+  &__link-btn {
+    padding: 12px 32px;
+    border-radius: 6px;
+    background-color: $btn;
+    color: $text-color;
+    margin-right: 24px;
+
+    @include mq("phone") {
+      padding: 8px 24px;
+      margin-right: 30px;
+      font-size: 14px;
+    }
+  }
+
+  &__link {
+    @include mq("phone") {
+      font-size: 16px;
+    }
+  }
+
+  &__img {
+    @extend %back;
+    background-position: right;
+    max-width: 550px;
+    width: 100%;
+    height: 660px;
+
+    @include mq("desktop") {
+      width: 490px;
+      height: 550px;
+    }
+
+    @include mq("tablet-2") {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 405px;
+      height: 480px;
+      z-index: -1;
+    }
+
+    @include mq("tablet") {
+      opacity: 0.4;
+      width: 318px;
+      height: 360px;
+    }
+
+    @include mq("phone") {
+      width: 254px;
+      height: 300px;
+      opacity: 0.2;
+    }
+
+    @include mqheight("landscape") {
+      width: 324px;
+      height: 368px;
+    }
+  }
+}

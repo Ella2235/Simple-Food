@@ -1,0 +1,86 @@
+.best-cafe {
+  &__inner {
+    padding-bottom: 120px;
+
+    @include mq("tablet") {
+      padding-bottom: 26px;
+    }
+  }
+
+  &__title {
+    width: fit-content;
+    margin: 0 auto 45px;
+    @include line-clamp(1);
+
+    @include mq("phone") {
+      margin: 0 auto 30px;
+    }
+  }
+
+  &__menu {
+    @include mq("tablet-2") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    @extend %j-center;
+
+    @include mq("tablet") {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__swiper {
+    @include mq("tablet") {
+      overflow: hidden;
+    }
+  }
+
+  &__swiper .swiper-wrapper {
+    @include mq("tablet") {
+      display: flex;
+      column-gap: 0;
+    }
+  }
+
+  &__dots {
+    @include mq("tablet") {
+      position: relative;
+      width: 100%;
+      height: 30px;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $btn;
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      background-color: $slide-color;
+      box-shadow: 0 0 0 2px $shadow;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $btn;
+    }
+
+    &:active {
+      background-color: $swiper-color;
+    }
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+}

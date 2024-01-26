@@ -1,0 +1,111 @@
+.promotion-cafe {
+  &__inner {
+    padding-bottom: 120px;
+
+    @include mq("tablet-2") {
+      padding-bottom: 80px;
+    }
+
+    @include mq("phone") {
+      padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    @include line-clamp(1);
+
+    @include mq("desktop") {
+      width: fit-content;
+      margin: 0 auto 40px;
+    }
+  }
+
+  &__subtitle {
+    @include mq("tablet") {
+      width: 330px;
+    }
+  }
+
+  &__swiper {
+    @include mq("tablet") {
+      overflow: hidden;
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    @include mq("desktop") {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @include mq("tablet") {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    width: 370px;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    @include mq("desktop") {
+      padding: 0 20px 30px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+
+    @include mq("tablet") {
+      padding: 0 0 45px;
+    }
+  }
+
+  &__dots {
+    @include mq("tablet") {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      z-index: 0;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $btn;
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background-color: $slide-color;
+      box-shadow: 0 0 0 2px $shadow;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $btn;
+    }
+
+    &:active {
+      background-color: $swiper-color;
+    }
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+}

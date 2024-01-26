@@ -35,28 +35,56 @@ document.addEventListener("DOMContentLoaded", () => {
   //Mobile Menu
   const burger = document.querySelector(".burger-open"); //наша кнопка
   const mobileMenu = document.querySelector(".info-contacts"); //мобильное меню
-  const bodyLock = document.querySelector("body"); //ищем как селектор ТЕГА
+  const bodyLock = document.body; //ищем как селектор ТЕГА
   const burgerClose = document.querySelector(".burger-close");
-  burger.addEventListener("click", () => {
-    mobileMenu.classList.add("info-contacts--active");
-    if (mobileMenu.classList.contains("info-contacts--active")) {
-      bodyLock.classList.add("lock");
-    }
-  });
 
-  burgerClose.addEventListener("click", () => {
+  function openMenu() {
+    mobileMenu.classList.add("info-contacts--active");
+    bodyLock.classList.add("lock");
+    document.addEventListener("click", outsideMenuClickHandler);
+  }
+
+  function closeMenu() {
     mobileMenu.classList.remove("info-contacts--active");
     bodyLock.classList.remove("lock");
-  });
+    document.removeEventListener("click", outsideMenuClickHandler);
+  }
 
-  document.addEventListener("click", function (e) {
-    if (e.target !== burger && e.target !== mobileMenu) {
-      mobileMenu.classList.remove("info-contacts--active");
-      bodyLock.classList.remove("lock");
+  function outsideMenuClickHandler(e) {
+    if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      closeMenu();
     }
-  });
+  }
 
-  mobileMenu.addEventListener("click", function (e) {
+  burger.addEventListener("click", openMenu);
+  burgerClose.addEventListener("click", closeMenu);
+
+  const btnFilter = document.querySelector(".catalog__btn");
+  const catalogFilters = document.querySelector(".blok-offer");
+  const filtersClose = document.querySelector(".burger-close-filter");
+
+  function openFilter() {
+    catalogFilters.classList.add("blok-offer--active");
+    bodyLock.classList.add("lock");
+    document.addEventListener("click", outsideFilterClickHandler);
+  }
+
+  function closeFilter() {
+    catalogFilters.classList.remove("blok-offer--active");
+    bodyLock.classList.remove("lock");
+    document.removeEventListener("click", outsideFilterClickHandler);
+  }
+
+  function outsideFilterClickHandler(e) {
+    if (!btnFilter.contains(e.target) && !catalogFilters.contains(e.target)) {
+      closeFilter();
+    }
+  }
+
+  btnFilter.addEventListener("click", openFilter);
+  filtersClose.addEventListener("click", closeFilter);
+
+  catalogFilters.addEventListener("click", function (e) {
     e.stopPropagation();
   });
 });
@@ -128,23 +156,153 @@ window.addEventListener("DOMContentLoaded", () => {
       clickable: true,
     },
   });
-});
 
-$(function () {
-  $(".select-style").styler();
-
-  $(".catalog__input-price").ionRangeSlider({
-    type: "double",
-    prefix: "$",
-    onStart: function (data) {
-      $(".catalog__price-from").text(data.from);
-      $(".catalog__price-to").text(data.to);
-    },
-    onChange: function (data) {
-      $(".catalog__price-from").text(data.from);
-      $(".catalog__price-to").text(data.to);
+  resizableSwiper("(max-width: 768px)", ".promotion-cafe__swiper", {
+    direction: "horizontal",
+    // speed: 700,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 });
 
+var $range = $(".blok-offer__input-slider");
+var $inputFrom = $(".blok-offer--form");
+var $inputTo = $(".blok-offer--to");
+var instance;
+var min = 100;
+var max = 1000;
+var from = 100;
+var to = 1000;
+
+$range.ionRangeSlider({
+  skin: "round",
+  type: "double",
+  min: min,
+  max: max,
+  from: 100,
+  to: 1000,
+  onStart: updateInputs,
+  onChange: updateInputs,
+  onFinish: updateInputs,
+});
+instance = $range.data("ionRangeSlider");
+
+function updateInputs(data) {
+  from = data.from;
+  to = data.to;
+
+  $inputFrom.prop("value", from);
+  $inputTo.prop("value", to);
+}
+
+$inputFrom.on("change", function () {
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < min) {
+    val = min;
+  } else if (val > to) {
+    val = to;
+  }
+
+  instance.update({
+    from: val,
+  });
+
+  $(this).prop("value", val);
+});
+
+$inputTo.on("change", function () {
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < from) {
+    val = from;
+  } else if (val > max) {
+    val = max;
+  }
+
+  instance.update({
+    to: val,
+  });
+
+  $(this).prop("value", val);
+});
+
+$(function () {
+  $(".menu-scroll, .logo").on("click", function (event) {
+    //отменяем стандартную обработку нажатия по ссылке
+    event.preventDefault();
+
+    //забираем идентификатор бока с атрибута href
+    var id = $(this).attr("href"),
+      //узнаем высоту от начала страницы до блока на который ссылается якорь
+      top = $(id).offset().top;
+
+    //анимируем переход на расстояние - top за 1500 мс
+    $("body,html").animate({ scrollTop: top }, 1500);
+  });
+});
+
+(function ($) {
+  $(function () {
+    $(".select-style").styler();
+  });
+})(jQuery);
+
+if (window.location.pathname === "/index.html") {
+  document.getElementById("home").href = "#!";
+}
+
 const mixer = mixitup(".popular-category");
+
+// var header = $(".header");
+// var content = $(".info-contents__inner");
+// var scroll = 1;
+
+// $(window).scroll(function () {
+//   var scroll = $(window).scrollTop();
+
+//   if (scroll >= scrollChange) {
+//     header.addClass("header-fixed");
+//     content.addClass("info-contents__inner--fixed");
+//   } else {
+//     header.removeClass("header-fixed");
+//     content.removeClass("info-contents__inner--fixed");
+//   }
+// });
+
+// burger
+// document.addEventListener("DOMContentLoaded", () => {
+//   //Mobile Menu
+//   const filter = document.querySelector(".catalog-select__btn"); //наша кнопка
+//   const filterMenu = document.querySelector(".catalog__filter"); //мобильное меню
+//   const bodyLock = document.querySelector("body"); //ищем как селектор ТЕГА
+//   const burgerClose = document.querySelector(".burger-close");
+//   filter.addEventListener("click", () => {
+//     filterMenu.classList.add("catalog__filter--active");
+//     if (filterMenu.classList.contains("catalog__filter--active")) {
+//       bodyLock.classList.add("lock");
+//     }
+//   });
+
+//   burgerClose.addEventListener("click", () => {
+//     filterMenu.classList.remove("catalog__filter--active");
+//     bodyLock.classList.remove("lock");
+//   });
+
+//   document.addEventListener("click", function (e) {
+//     if (e.target !== filter && e.target !== filterMenu) {
+//       filterMenu.classList.remove("catalog__filter--active");
+//       bodyLock.classList.remove("lock");
+//     }
+//   });
+
+//   filterMenu.addEventListener("click", function (e) {
+//     e.stopPropagation();
+//   });
+// });

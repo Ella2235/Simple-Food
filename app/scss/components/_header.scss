@@ -1,0 +1,60 @@
+.header {
+  padding-top: 159px;
+
+  @include mq("tablet-2") {
+    padding-top: 86px;
+  }
+
+  &__inner {
+    position: fixed;
+    padding: 60px 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+
+    &--fixed {
+      padding: 15px 15px;
+      background-color: $primary-color;
+      box-shadow: 10px 10px 84px -6px $fixed-color;
+      z-index: 2;
+      transition: padding 0.3s;
+    }
+
+    @include mq("tablet-2") {
+      padding: 15px 0;
+    }
+  }
+
+  &__nav {
+    @extend %flex;
+    width: 100%;
+  }
+
+  &__logo {
+    @include mq("tablet-2") {
+      z-index: 1;
+    }
+
+    @include mq("phone") {
+      width: 115px;
+      height: 23px;
+    }
+  }
+
+  &__user {
+    @include mq("tablet-2") {
+      margin-left: auto;
+      margin-right: 14px;
+    }
+  }
+
+  &__menu {
+    margin-left: auto;
+    margin-right: 52px;
+
+    @include mq("tablet-2") {
+      display: none;
+    }
+  }
+}

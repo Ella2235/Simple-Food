@@ -1,0 +1,24 @@
+.menu {
+  @extend %flex;
+
+  &__item {
+    color: $subtitle;
+    font-size: 18px;
+
+    &:not(:last-child) {
+      margin-right: 45px;
+    }
+  }
+
+  &__link {
+    &--active {
+      color: $btn;
+    }
+  }
+
+  &__svg {
+    @include mq("tablet-2") {
+      top: 20px;
+    }
+  }
+}

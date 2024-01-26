@@ -1,0 +1,176 @@
+.blok-offer {
+    margin-right: 30px;
+  
+    @include mq("tablet") {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-200%);
+      z-index: 3;
+      margin-right: 0;
+    }
+  
+    &--active {
+      transform: translateX(0);
+      width: 80%;
+      height: 100vh;
+      padding: 80px 50px 60px 0;
+      overflow: scroll;
+      background-color: $text-color;
+      transition: transform 0.3s ease-out;
+    }
+  
+    &__item {
+      font-size: 18px;
+      line-height: 1.3;
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  
+    &__link {
+      &--active {
+        color: $btn;
+      }
+    }
+  
+    &__label {
+      @extend %align;
+      font-size: 18px;
+      line-height: 1.2;
+      position: relative;
+      padding-left: 33px;
+      transition: color 0.3s;
+  
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+  
+      &:hover {
+        color: $btn;
+      }
+    }
+  
+    &__input {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      position: absolute;
+  
+      &:checked + .blok-offer__checkbox {
+        background-image: url("../images/sprite.svg#check");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 43px 10px;
+        border-color: $title;
+        transition: border-color 0.3s;
+      }
+  
+      &:focus + .blok-offer__checkbox {
+        border-color: $btn;
+      }
+    }
+  
+    &__checkbox {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid $social-color;
+      background-color: $catalog;
+      position: absolute;
+      z-index: 0;
+      margin-left: -33px;
+      transition: border-color 0.3s;
+  
+      &:hover {
+        border-color: $btn;
+      }
+    }
+  
+    &__box {
+      display: flex;
+      margin-bottom: 25px;
+    }
+  
+    &__label-price {
+      @extend %flex;
+      width: 115px;
+      height: 40px;
+      &:not(:last-child) {
+        margin-right: 21px;
+      }
+    }
+  
+    &__text {
+      font-size: 16px;
+      line-height: 1.2;
+      color: $border-color;
+    }
+  
+    &__number {
+      text-align: center;
+      max-width: 70px;
+      width: 100%;
+      padding: 5px 10px;
+      background-color: $catalog;
+      border-radius: 3px;
+      border: 1px solid #faeded;
+      transition: border-color 0.3s;
+  
+      .placeholder {
+        font-size: 16px;
+        line-height: 1;
+        color: $subtitle;
+      }
+  
+      &:focus {
+        border-color: $btn;
+      }
+    }
+  
+    &__svg {
+      fill: none;
+      fill: $border-color;
+      width: 10px;
+      height: 13px;
+    }
+  
+    .irs--round {
+      height: 18px;
+      z-index: 0;
+    }
+  
+    .irs--round .irs-to,
+    .irs--round .irs-from {
+      display: none;
+    }
+  
+    .irs--round .irs-max,
+    .irs--round .irs-min {
+      display: none;
+    }
+  
+    .irs--round .irs-line {
+      top: 8px;
+      height: 2px;
+      background-color: $border-color;
+      border-radius: 0;
+    }
+  
+    .irs--round .irs-bar {
+      top: 8px;
+      height: 2px;
+      background-color: $btn;
+    }
+  
+    .irs--round .irs-handle {
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: none;
+      background-color: $btn;
+      border-radius: 50%;
+      box-shadow: 0;
+    }
+  }

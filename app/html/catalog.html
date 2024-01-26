@@ -1,0 +1,24 @@
+@include('components/_head.html',{
+"@pageTitle": "Catalog"
+})
+
+
+
+@include('components/_header.html'),{
+"@page": "home"
+}
+
+
+<main>
+    @include('components/_catalog.html')
+
+    @include('components/_download-mobile.html')
+
+    @include('page-index/_promotion-cafe.html')
+
+
+</main>
+
+@include('components/_footer.html')
+
+@include('components/_footer-scripts.html')

@@ -1,0 +1,132 @@
+.popular-category {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 60px;
+    @include line-clamp(1);
+
+    @include mq("phone") {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding: 3px 3px 7px;
+
+    @include mq("phone") {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 20px;
+
+    @include mq("phone") {
+      margin-right: 10px;
+      margin-bottom: 9px;
+    }
+  }
+
+  &__btn {
+    @extend %align;
+    font-size: 20px;
+    color: $title;
+    background-color: $text-color;
+    box-shadow: 0 0 0 1px $social-color;
+    border-radius: 5px;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: $bag-color;
+      box-shadow: 0 0 0 2px $shadow;
+      color: $btn;
+
+      svg {
+        fill: $btn;
+      }
+    }
+
+    &:focus {
+      background-color: $text-color;
+      box-shadow: 0 0 0 2px $shadow;
+      color: $title;
+
+      svg {
+        fill: $title;
+      }
+    }
+
+    &:active {
+      background-color: $text-color;
+      box-shadow: 0 -5px 12px 0 $shadow-color inset;
+      color: $title;
+
+      svg {
+        fill: $title;
+      }
+    }
+
+    &.mixitup-control-active {
+      background-color: $btn;
+      color: $text-color;
+      box-shadow: 0;
+      svg {
+        fill: $text-color;
+      }
+    }
+
+    @include mq("phone") {
+      font-size: 14px;
+      padding: 11px 16px;
+    }
+  }
+
+  &__svg {
+    fill: $title;
+    width: 44px;
+    height: 44px;
+    margin-right: 9px;
+    transform: fill 0.3s;
+
+    @include mq("phone") {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  &__list {
+    grid-template-columns: repeat(5, auto);
+    padding-bottom: 60px;
+
+    @include mq("desktop") {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px 5;
+    }
+
+    @include mq("tablet-2") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq("phone") {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 5px;
+      padding-bottom: 38px;
+    }
+  }
+
+  &__box {
+    @include mq("desktop") {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include mq("phone") {
+      height: 298px;
+    }
+  }
+}

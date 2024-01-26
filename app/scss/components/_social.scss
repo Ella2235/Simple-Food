@@ -1,0 +1,42 @@
+.social-contacts {
+  display: flex;
+  &__item {
+    text-align: center;
+    &:not(:last-child) {
+      margin-right: 13px;
+    }
+  }
+
+  &__link {
+    @extend %j-center;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: $social-color;
+
+    &:hover {
+      svg {
+        fill: $text-color;
+      }
+    }
+
+    &:focus {
+      svg {
+        fill: $subtitle;
+      }
+    }
+
+    &:active {
+      svg {
+        fill: $btn;
+      }
+    }
+  }
+
+  &__svg {
+    fill: $subtitle;
+    width: 21px;
+    height: 21px;
+    transition: fill 0.3s;
+  }
+}

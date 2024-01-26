@@ -1,0 +1,123 @@
+<header class="header" id="header">
+    <div class="header__inner">
+        <div class="container">
+            <nav class="header__nav ">
+                <a class="header__logo logo" href="index.html">
+                    <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
+                </a>
+                <button class="burger-open" type="button">
+                    <span class="burger-open__bar"></span>
+                    <span class="sr-only">Открыть меню</span>
+                </button>
+                <ul class="menu header__menu ">
+                    <li class="menu__item">
+                        <a class="menu__link link  menu-scroll @if (context.page === 'home'){menu__link--active}"
+                            href="index.html" id="home">Главная</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link link @if (context.page === 'catalog'){menu__link--active}"
+                            href="catalog.html" id="catalog">Блюда</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link link menu-scroll" href="#contacts">Контакты</a>
+                    </li>
+                </ul>
+                <ul class="user-nav header__user">
+                    <li class="user-nav__item">
+                        <button class="user-nav__btn button-user" type="button">
+                            <svg class="user-nav__svg">
+                                <use xlink:href="images/sprite.svg#search"></use>
+                            </svg>
+                            <span class="sr-only">поиск по сайту</span>
+                        </button>
+                    </li>
+                    <li class="user-nav__item">
+                        <button class="user-nav__btn button-user" type="button">
+                            <svg class="user-nav__svg">
+                                <use xlink:href="images/sprite.svg#basket"></use>
+                            </svg>
+                            <span class="user-nav__btn-num">4</span>
+                            <span class="sr-only">корзина</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="info-contacts">
+            <div class="info-contacts__inner">
+                <a class="info-contacts__logo logo " href="index.html">
+                    <img class="info-contacts__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
+                </a>
+                <button class="burger-close" type="button">
+                    <span class="sr-only">Закрыть меню</span>
+                </button>
+            </div>
+
+            <ul class="menu">
+                <li class="menu__item">
+                    <a class="menu__link link menu__link--active" href="index.html">Главная</a>
+                </li>
+                <li class="menu__item ">
+                    <a class="menu__link link" href="catalog.html">Блюда</a>
+                </li>
+                <li class="menu__item info-contacts__item">
+                    <a class="menu__link link" href="#contacts">Контакты</a>
+                </li>
+            </ul>
+            <div class="contact-blok">
+                <ul class="contact-blok__inner">
+                    <li class="contact-blok__item ">
+                        <a class="contact-blok__link link" target="_blank" href="#">
+                            <svg class="contact-blok__svg">
+                                <use xlink:href="images/sprite.svg#location"></use>
+                            </svg>
+                            ул. Т.Г.Шевченко, 1
+                        </a>
+                    </li>
+                    <li class="contact-blok__item">
+                        <a class="contact-blok__link link" href="tel:380501112233">
+                            <svg class="contact-blok__svg">
+                                <use xlink:href="images/sprite.svg#calling"></use>
+                            </svg>
+                            380501112233
+                        </a>
+                    </li>
+                    <li class="contact-blok__item ">
+                        <a class="contact-blok__link link" href="mailto:support@sfood.com">
+                            <svg class="contact-blok__svg">
+                                <use xlink:href="images/sprite.svg#message"></use>
+                            </svg>
+                            support@sfood.com
+                        </a>
+                    </li>
+                </ul>
+                <ul class="social-contacts">
+                    <li class="social-contacts__item">
+                        <a class="social-contacts__link button-user" target="_blank" href="#">
+                            <svg class="social-contacts__svg">
+                                <use xlink:href="images/sprite.svg#ic-facebook"></use>
+                            </svg>
+                            <span class="sr-only">подписывайтесь на нашу страницу facebook</span>
+                        </a>
+                    </li>
+                    <li class="social-contacts__item">
+                        <a class="social-contacts__link button-user" target="_blank" href="#">
+                            <svg class="social-contacts__svg">
+                                <use xlink:href="images/sprite.svg#ic-twitter"></use>
+                            </svg>
+                            <span class="sr-only">подписывайтесь на нашу страницу twitter</span>
+                        </a>
+                    </li>
+                    <li class="social-contacts__item">
+                        <a class="social-contacts__link button-user" target="_blank" href="#">
+                            <svg class="social-contacts__svg">
+                                <use xlink:href="images/sprite.svg#ic-instagram"></use>
+                            </svg>
+                            <span class="sr-only"> подписывайтесь на нашу страницу instagram</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
