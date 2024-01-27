@@ -233,20 +233,19 @@ $inputTo.on("change", function () {
   $(this).prop("value", val);
 });
 
-$(function () {
-  $(".menu-scroll, .logo").on("click", function (event) {
-    //отменяем стандартную обработку нажатия по ссылке
-    event.preventDefault();
-
-    //забираем идентификатор бока с атрибута href
-    var id = $(this).attr("href"),
-      //узнаем высоту от начала страницы до блока на который ссылается якорь
-      top = $(id).offset().top;
-
-    //анимируем переход на расстояние - top за 1500 мс
-    $("body,html").animate({ scrollTop: top }, 1500);
+function scrollToElement(element) {
+  document.querySelector(element).scrollIntoView({
+    behavior: "smooth",
+    block: "start",
   });
-});
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
 
 (function ($) {
   $(function () {
@@ -257,6 +256,38 @@ $(function () {
 if (window.location.pathname === "/index.html") {
   document.getElementById("home").href = "#!";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const isHomePage = document
+    .querySelector("a[data-is-home-page]")
+    .getAttribute("data-is-home-page");
+  const link = document.querySelector("a[data-is-home-page]");
+  const linkLogo = document.querySelector("a[data-is-logo]");
+  link.href = isHomePage === "true" ? "#first-section" : "index.html";
+  linkLogo.href = isHomePage === "true" ? "#first-section" : "index.html";
+
+  const catalogLink = document.getElementById("catalog");
+  catalogLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (isHomePage === "true") {
+      scrollToElement("#first-section");
+    } else {
+      scrollToTop();
+    }
+  });
+
+  // Плавный скролл при клике на ссылку с id="logo"
+  document.getElementById("logo").addEventListener("click", function () {
+    scrollToElement("#first-section");
+  });
+
+  // Плавный скролл при клике на ссылку с id="navigation-link"
+  document
+    .getElementById("navigation-link")
+    .addEventListener("click", function () {
+      scrollToElement("#first-section");
+    });
+});
 
 const mixer = mixitup(".popular-category");
 
@@ -304,5 +335,19 @@ const mixer = mixitup(".popular-category");
 
 //   filterMenu.addEventListener("click", function (e) {
 //     e.stopPropagation();
+//   });
+// });
+// $(function () {
+//   $(".menu-scroll, .logo").on("click", function (event) {
+//     //отменяем стандартную обработку нажатия по ссылке
+//     event.preventDefault();
+
+//     //забираем идентификатор бока с атрибута href
+//     var id = $(this).attr("href"),
+//       //узнаем высоту от начала страницы до блока на который ссылается якорь
+//       top = $(id).offset().top;
+
+//     //анимируем переход на расстояние - top за 1500 мс
+//     $("body,html").animate({ scrollTop: top }, 1500);
 //   });
 // });

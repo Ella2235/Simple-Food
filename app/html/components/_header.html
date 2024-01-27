@@ -1,8 +1,8 @@
-<header class="header" id="header">
+<header class="header" id="first-section">
     <div class="header__inner">
         <div class="container">
             <nav class="header__nav ">
-                <a class="header__logo logo" href="index.html">
+                <a class="header__logo logo" href="#first-section" data-is-logo="{{isHomePage}}" id="logo">
                     <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
                 </a>
                 <button class="burger-open" type="button">
@@ -12,7 +12,7 @@
                 <ul class="menu header__menu ">
                     <li class="menu__item">
                         <a class="menu__link link  menu-scroll @if (context.page === 'home'){menu__link--active}"
-                            href="index.html" id="home">Главная</a>
+                            href="#first-section" data-is-home-page="{{isHomePage}}" id="navigation-link">Главная</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link link @if (context.page === 'catalog'){menu__link--active}"

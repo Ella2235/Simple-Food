@@ -11,6 +11,30 @@ const svgSprite = require("gulp-svg-sprite");
 const replace = require("gulp-replace");
 const cheerio = require("gulp-cheerio");
 const fileInclude = require("gulp-file-include");
+const data = require("gulp-data");
+const gulpif = require("gulp-if");
+
+const htmlInclude = () => {
+  return src(["app/html/*.html"])
+    .pipe(
+      data(function () {
+        return {
+          isHomePage: true,
+        };
+      })
+    )
+    .pipe(
+      fileInclude({
+        prefix: "@",
+        basepath: "@file",
+        context: {
+          isHomePage: true,
+        },
+      })
+    )
+    .pipe(gulpif("*.html", dest("app")))
+    .pipe(browserSync.stream());
+};
 
 function browsersync() {
   browserSync.init({
@@ -115,17 +139,17 @@ function cleanDist() {
   return del("dist");
 }
 
-const htmlInclude = () => {
-  return src(["app/html/*.html"])
-    .pipe(
-      fileInclude({
-        prefix: "@",
-        basepath: "@file",
-      })
-    )
-    .pipe(dest("app"))
-    .pipe(browserSync.stream());
-};
+// const htmlInclude = () => {
+//   return src(["app/html/*.html"])
+//     .pipe(
+//       fileInclude({
+//         prefix: "@",
+//         basepath: "@file",
+//       })
+//     )
+//     .pipe(dest("app"))
+//     .pipe(browserSync.stream());
+// };
 
 function watching() {
   watch(["app/scss/**/*.scss"], styles);

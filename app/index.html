@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Simple Food @pageTitle</title>
+    <title> Simple Food Simple Food</title>
     <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon.svg">
     <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon.svg">
@@ -18,11 +18,11 @@
 
 <body>
 
-<header class="header" id="header">
+<header class="header" id="first-section">
     <div class="header__inner">
         <div class="container">
             <nav class="header__nav ">
-                <a class="header__logo logo" href="index.html">
+                <a class="header__logo logo" href="#first-section" data-is-logo="{{isHomePage}}" id="logo">
                     <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
                 </a>
                 <button class="burger-open" type="button">
@@ -31,8 +31,8 @@
                 </button>
                 <ul class="menu header__menu ">
                     <li class="menu__item">
-                        <a class="menu__link link  menu-scroll "
-                            href="index.html" id="home">Главная</a>
+                        <a class="menu__link link  menu-scroll menu__link--active"
+                            href="#first-section" data-is-home-page="{{isHomePage}}" id="navigation-link">Главная</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link link "

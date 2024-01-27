@@ -7,6 +7,11 @@ body {
   @extend %regular-400;
 }
 
+.wrapper {
+  overflow-y: hidden;
+  position: relative;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

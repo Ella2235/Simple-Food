@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Simple Food @pageTitle</title>
+    <title> Simple Food Catalog</title>
     <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon.svg">
     <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon.svg">
@@ -19,12 +19,12 @@
 <body>
 
 
-
-<header class="header" id="header">
+<div class="wrapper">
+    <header class="header" id="first-section">
     <div class="header__inner">
         <div class="container">
             <nav class="header__nav ">
-                <a class="header__logo logo" href="index.html">
+                <a class="header__logo logo" href="#first-section" data-is-logo="{{isHomePage}}" id="logo">
                     <img class="logo__img" src="images/icons/logo.svg" width="197" height="31" alt="Логотип">
                 </a>
                 <button class="burger-open" type="button">
@@ -34,10 +34,10 @@
                 <ul class="menu header__menu ">
                     <li class="menu__item">
                         <a class="menu__link link  menu-scroll "
-                            href="index.html" id="home">Главная</a>
+                            href="#first-section" data-is-home-page="{{isHomePage}}" id="navigation-link">Главная</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link link "
+                        <a class="menu__link link menu__link--active"
                             href="catalog.html" id="catalog">Блюда</a>
                     </li>
                     <li class="menu__item">
@@ -142,13 +142,11 @@
             </div>
         </div>
     </div>
-</header>,{
-"@page": "home"
-}
+</header>
 
 
-<main>
-    <section class="catalog">
+    <main>
+        <section class="catalog">
     <div class="container">
         <ul class="catalog-menu">
             <li class="catalog-menu__item ">
@@ -461,7 +459,7 @@
     </div>
 </section>
 
-    <section class="download-mobile">
+        <section class="download-mobile">
     <div class="container">
         <div class="download-mobile__box">
             <div class="download-mobile__inner">
@@ -498,7 +496,7 @@
     </div>
 </section>
 
-    <section class="promotion-cafe">
+        <section class="promotion-cafe">
     <div class="container">
         <div class="promotion-cafe__inner">
             <h2 class="promotion-cafe__title title">Акции и скидки</h2>
@@ -551,9 +549,9 @@
 </section>
 
 
-</main>
+    </main>
 
-<footer class="footer" id="contacts">
+    <footer class="footer" id="contacts">
     <div class="container">
         <div class="footer__box">
             <div class="form-subscribe">
@@ -678,7 +676,7 @@
         <span class="footer__text"> © 2022 Simple Food</span>
     </div>
 </footer>
-
+</div>
 <script src="js/main.min.js"></script>
 
 </body>
