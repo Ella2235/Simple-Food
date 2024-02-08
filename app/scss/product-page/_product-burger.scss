@@ -1,0 +1,129 @@
+.product-burger {
+  &__inner {
+    position: relative;
+    text-align: center;
+    padding-bottom: 120px;
+
+    @include mq("tablet-2") {
+      padding-bottom: 75px;
+    }
+
+    @include mq("phone") {
+      padding-bottom: 40px;
+    }
+  }
+  &__title {
+    margin-bottom: 60px;
+
+    @include mq("phone") {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    height: 299px;
+  }
+
+  &__card {
+    @extend %align;
+    max-width: 210px;
+    width: 100%;
+    padding: 20px 12px;
+
+    @include mq("tablet-2") {
+      &:nth-last-child(5) {
+        display: none;
+      }
+    }
+
+    @include mq("tablet") {
+      &:nth-last-child(4) {
+        display: none;
+      }
+    }
+
+    @include mq("phone") {
+      padding: 20px 3px;
+      &:nth-last-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 96px;
+    right: 0;
+    top: 0;
+
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
+  &__prev {
+    margin-right: 10px;
+  }
+
+  &__svg {
+    fill: $border-color;
+    width: 11px;
+    height: 19px;
+    transition: fill 0.3s;
+
+    &--rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dots {
+    @include mq("tablet") {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      z-index: 0;
+    }
+  }
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 4px);
+  }
+
+  .swiper-button-disabled {
+    border-color: $btn;
+    svg {
+      fill: $btn;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      background-color: $slide-color;
+      box-shadow: 0 0 0 2px $shadow;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $btn;
+    }
+
+    &:active {
+      background-color: $swiper-color;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $btn;
+  }
+
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+}

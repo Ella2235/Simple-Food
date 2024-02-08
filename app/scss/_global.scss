@@ -7,6 +7,12 @@ body {
   @extend %regular-400;
 }
 
+.body-lock {
+  overflow: hidden;
+}
+
+// Slider-popup initialization
+
 .wrapper {
   overflow-y: hidden;
   position: relative;
@@ -45,6 +51,10 @@ body {
   @include mq("phone") {
     font-size: 24px;
   }
+}
+
+.hidden {
+  display: none;
 }
 
 .button {
@@ -167,7 +177,7 @@ body {
   }
 }
 
-.blok-offer__inner--size {
+.blok-offer-size {
   max-width: 270px;
   width: 100%;
   padding: 15px 15px;
@@ -228,5 +238,82 @@ body {
       top: 50%;
       transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     }
+  }
+}
+
+.active-tab {
+  color: $btn;
+}
+
+.label-check {
+  cursor: pointer;
+}
+
+.button-slider-next,
+.button-slider-prev {
+  width: 40px;
+  height: 40px;
+  border: 3px solid $border-color;
+  border-radius: 34px;
+  padding: 5px;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $slide-color;
+    border-color: $swiper-color;
+
+    svg {
+      fill: $swiper-color;
+    }
+  }
+  &:focus {
+    background-color: transparent;
+    border-color: $swiper-color;
+  }
+  &:active {
+    background-color: $slide-color;
+    border-color: transparent;
+
+    svg {
+      fill: $interactive;
+    }
+  }
+}
+
+.product-slider-next,
+.product-slider-prev {
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  top: 43%;
+  background-color: transparent;
+  border: 0;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+
+    svg {
+      fill: $btn;
+    }
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+    border-color: transparent;
+
+    svg {
+      fill: $close-color;
+    }
+  }
+
+  @include mqheight("landscape") {
+    top: 34%;
   }
 }

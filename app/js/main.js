@@ -10,14 +10,15 @@ $(window).scroll(function () {
   }
 });
 
-const swiper = new Swiper(".customer-reviews__swiper", {
+const swiper = new Swiper(".swiper", {
   loop: false,
   speed: 1000,
 
   keyboard: {
     enabled: true,
     slidesPerGroup: 4,
-    // onlyInViewport: true,
+    slidesPerView: 1,
+    onlyInViewport: true,
   },
 
   pagination: {
@@ -26,8 +27,8 @@ const swiper = new Swiper(".customer-reviews__swiper", {
   },
 
   navigation: {
-    nextEl: ".customer-reviews__btn-next",
-    prevEl: ".customer-reviews__btn-prev",
+    nextEl: ".button-slider-next",
+    prevEl: ".button-slider-prev",
   },
 });
 
@@ -233,20 +234,6 @@ $inputTo.on("change", function () {
   $(this).prop("value", val);
 });
 
-function scrollToElement(element) {
-  document.querySelector(element).scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}
-
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
-
 (function ($) {
   $(function () {
     $(".select-style").styler();
@@ -289,65 +276,148 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function scrollToElement(element) {
+  document.querySelector(element).scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+//  counter
+let minusTab = document.querySelector("#minus");
+let plusTab = document.querySelector("#plus");
+
+minusTab.addEventListener("click", function () {
+  let output = document.querySelector("#result");
+  let result = Number(output.innerHTML) - 1;
+  if (result >= 1) {
+    output.innerHTML = result;
+  }
+});
+
+plusTab.addEventListener("click", function () {
+  let output = document.querySelector("#result");
+  let result = Number(output.innerHTML) + 1;
+  output.innerHTML = result;
+});
+
+// tab
+const tabHeaders = document.querySelectorAll("[data-tab]");
+const contentBoxes = document.querySelectorAll("[data-tab-content]");
+
+tabHeaders.forEach(function (item) {
+  item.addEventListener("click", function () {
+    contentBoxes.forEach(function (item) {
+      item.classList.add("hidden");
+    });
+
+    const contentBox = document.querySelector("#" + this.dataset.tab);
+    contentBox.classList.remove("hidden");
+  });
+});
+
+// const burgerSlider = document.querySelectorAll(".product-burger__dots");
+// burgerSlider.forEach(function (slider) {
+//   const swiper = new Swiper(slider, {
+//     navigation: {
+//       nextEl: slider.querySelector(".product-burger__next"),
+//       prevEl: slider.querySelector(".product-berger__prev"),
+//       clickable: false,
+//     },
+//     pagination: {
+//       el: slider.querySelector(".swiper-pagination"),
+//       clickable: true,
+//     },
+//   });
+// });
+
+// Start Slider-popup initialization - это мой
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sliders = document.querySelectorAll(".product-slider");
+  sliders.forEach(function (slider) {
+    const swiper = new Swiper(slider, {
+      navigation: {
+        nextEl: slider.querySelector(".product-slider__next"),
+        prevEl: slider.querySelector(".product-slider__prev"),
+      },
+      pagination: {
+        el: slider.querySelector(".swiper-pagination"),
+        clickable: true,
+      },
+    });
+
+    const dots = slider.querySelectorAll(".swiper-pagination-bullet");
+    dots.forEach(function (dot, index) {
+      dot.addEventListener("click", function () {
+        swiper.slideTo(index);
+      });
+    });
+  });
+
+  // Обработчик открытия попапа
+  const buttons = document.querySelectorAll("[data-modal-button]");
+  const modal = document.querySelector("[data-modal]");
+  const buttonClose = document.querySelector("[data-modal-close]");
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      modal.classList.remove("hidden");
+
+      const dotsContainer = modal.querySelector(".popup__dots");
+      dotsContainer.style.display = "block";
+
+      const popupSlider = modal.querySelector(".popup__slider");
+      const swiperModal = new Swiper(popupSlider, {
+        navigation: {
+          nextEl: modal.querySelector(".popup__next"),
+          prevEl: modal.querySelector(".popup__prev"),
+        },
+        pagination: {
+          el: modal.querySelector(".popup__dots"),
+          clickable: true,
+        },
+      });
+
+      document.body.classList.add("body-lock");
+
+      // Обработчик клика на dots для перелистывания слайдов в попапе
+      const popupDots = modal.querySelectorAll(".swiper-pagination-bullet");
+      popupDots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          swiperModal.slideTo(index); // Перелистываем на соответствующий слайд в попапе
+        });
+      });
+    });
+  });
+
+  // Обработчик закрытия попапа
+  buttonClose.addEventListener("click", function () {
+    modal.classList.add("hidden");
+    document.body.classList.remove("body-lock");
+  });
+});
+
 const mixer = mixitup(".popular-category");
 
-// var header = $(".header");
-// var content = $(".info-contents__inner");
-// var scroll = 1;
+// popup
 
-// $(window).scroll(function () {
-//   var scroll = $(window).scrollTop();
+// const button = document.querySelector("[data-modal-button]");
+// const modal = document.querySelector("[data-modal]");
+// const buttonClose = document.querySelector("[data-modal-close]");
+// console.log(button);
 
-//   if (scroll >= scrollChange) {
-//     header.addClass("header-fixed");
-//     content.addClass("info-contents__inner--fixed");
-//   } else {
-//     header.removeClass("header-fixed");
-//     content.removeClass("info-contents__inner--fixed");
-//   }
+// button.addEventListener("click", function () {
+//   modal.classList.remove("hidden");
 // });
 
-// burger
-// document.addEventListener("DOMContentLoaded", () => {
-//   //Mobile Menu
-//   const filter = document.querySelector(".catalog-select__btn"); //наша кнопка
-//   const filterMenu = document.querySelector(".catalog__filter"); //мобильное меню
-//   const bodyLock = document.querySelector("body"); //ищем как селектор ТЕГА
-//   const burgerClose = document.querySelector(".burger-close");
-//   filter.addEventListener("click", () => {
-//     filterMenu.classList.add("catalog__filter--active");
-//     if (filterMenu.classList.contains("catalog__filter--active")) {
-//       bodyLock.classList.add("lock");
-//     }
-//   });
-
-//   burgerClose.addEventListener("click", () => {
-//     filterMenu.classList.remove("catalog__filter--active");
-//     bodyLock.classList.remove("lock");
-//   });
-
-//   document.addEventListener("click", function (e) {
-//     if (e.target !== filter && e.target !== filterMenu) {
-//       filterMenu.classList.remove("catalog__filter--active");
-//       bodyLock.classList.remove("lock");
-//     }
-//   });
-
-//   filterMenu.addEventListener("click", function (e) {
-//     e.stopPropagation();
-//   });
-// });
-// $(function () {
-//   $(".menu-scroll, .logo").on("click", function (event) {
-//     //отменяем стандартную обработку нажатия по ссылке
-//     event.preventDefault();
-
-//     //забираем идентификатор бока с атрибута href
-//     var id = $(this).attr("href"),
-//       //узнаем высоту от начала страницы до блока на который ссылается якорь
-//       top = $(id).offset().top;
-
-//     //анимируем переход на расстояние - top за 1500 мс
-//     $("body,html").animate({ scrollTop: top }, 1500);
-//   });
+// buttonClose.addEventListener("click", function () {
+//   modal.classList.add("hidden");
 // });

@@ -139,18 +139,6 @@ function cleanDist() {
   return del("dist");
 }
 
-// const htmlInclude = () => {
-//   return src(["app/html/*.html"])
-//     .pipe(
-//       fileInclude({
-//         prefix: "@",
-//         basepath: "@file",
-//       })
-//     )
-//     .pipe(dest("app"))
-//     .pipe(browserSync.stream());
-// };
-
 function watching() {
   watch(["app/scss/**/*.scss"], styles);
   watch(["app/images/icons/*.svg"], svgSprites);
@@ -177,3 +165,15 @@ exports.default = parallel(
   browsersync,
   watching
 );
+
+// const htmlInclude = () => {
+//   return src(["app/html/*.html"])
+//     .pipe(
+//       fileInclude({
+//         prefix: "@",
+//         basepath: "@file",
+//       })
+//     )
+//     .pipe(dest("app"))
+//     .pipe(browserSync.stream());
+// };

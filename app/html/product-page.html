@@ -1,22 +1,18 @@
 @include('components/_head.html',{
-"@pageTitle": "Cтраница каталога"
+"@pageTitle": "Страница товара"
 })
 
-
 <div class="wrapper">
+
     @include('components/_header.html', {
-    "page": "catalog"
+    "page": "product-page"
     })
 
 
     <main>
-        @include('catalog/_catalog.html')
+        @include('product-page/_product-page.html')
 
-        @include('components/_download-mobile.html')
-
-        @include('catalog/_promotion-cafe.html')
-
-
+        @include('product-page/_product-burger.html')
     </main>
 
     @include('components/_footer.html')

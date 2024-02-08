@@ -55,6 +55,7 @@
     }
 
     @include mq("desktop") {
+      height: 400px;
       padding: 0 20px 30px;
 
       &:not(:last-child) {

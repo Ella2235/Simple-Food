@@ -161,42 +161,6 @@
     }
   }
 
-  &__btn-next,
-  &__btn-prev {
-    width: 40px;
-    height: 40px;
-    border: 3px solid $border-color;
-    border-radius: 34px;
-    padding: 5px;
-    background-color: transparent;
-
-    &:hover {
-      background-color: $slide-color;
-      border-color: $swiper-color;
-
-      svg {
-        fill: $swiper-color;
-      }
-    }
-    &:focus {
-      background-color: transparent;
-      border-color: $swiper-color;
-    }
-    &:active {
-      background-color: $slide-color;
-      border-color: transparent;
-
-      svg {
-        fill: $interactive;
-      }
-    }
-
-    @include mq("phone") {
-      transform: translateY(70%);
-      left: 0;
-    }
-  }
-
   &__svg {
     fill: $border-color;
     width: 11px;
